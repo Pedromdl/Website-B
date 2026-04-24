@@ -659,12 +659,19 @@
 
         .training-visual {
             position: relative;
+            display: flex;
+            width: 70%;
+            flex-direction: column;
+            justify-self: right;
         }
 
         .training-video-placeholder {
             background: linear-gradient(135deg, var(--dark) 0%, var(--dark-soft) 100%);
             border-radius: 32px;
-            aspect-ratio: 16 / 10;
+            aspect-ratio: 9 / 16;
+            max-height: 80vh;
+            /* 80% da altura da tela */
+            width: auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -673,11 +680,10 @@
             box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.15);
         }
 
-        .training-video-placeholder img {
+        .training-video-placeholder video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
         }
 
         .training-video-placeholder:hover img {
@@ -1353,14 +1359,13 @@
 
                 <div class="training-visual">
                     <div class="training-video-placeholder">
-                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format"
-                            alt="Acompanhamento profissional durante o treino">
-                        <div class="play-icon">
-                            <i class="fas fa-play"></i>
-                        </div>
+                        <video src="./videos/videopage.mp4" controls autoplay muted
+                            style="max-width: 100%; height: auto;">
+                            Seu navegador não suporta a tag de vídeo.
+                        </video>
                     </div>
                     <div class="visual-caption">
-                        <i class="fas fa-eye"></i> Alex Binotti acompanhando cada detalhe do seu movimento
+                        <i class="fas fa-eye"></i> Um pequeno vislumbre do nosso espaço
                     </div>
                 </div>
             </div>
@@ -1472,7 +1477,7 @@
                         <div class="service-tag">Endurance | Força | Performance</div>
                     </div>
                     <div class="service-full-card">
-                        <div class="service-full-icon"><i class="fas fa-spine"></i></div>
+<div class="service-full-icon"><i class="fas fa-hand-sparkles"></i></div>
                         <h3>Fisioterapia Esportiva</h3>
                         <p>Avaliação e tratamento de lesões, terapia manual e prevenção.</p>
                         <div class="service-tag">Lesões | Prevenção | Recuperação</div>
