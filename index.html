@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17546606558"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRN3H1B71Y"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
+        gtag('config', 'G-JRN3H1B71Y');
         gtag('config', 'AW-17546606558');
     </script>
 
@@ -42,6 +43,7 @@
             font: fallback;
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
+            overflow-x: hidden;
             /* Altura do header + espaçamento */
         }
 
@@ -58,6 +60,7 @@
             color: var(--text-dark);
             line-height: 1.4;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         .container {
@@ -212,6 +215,7 @@
             .nav-links.active {
                 left: 0;
                 margin-left: 10px;
+                border-radius: 20px;
             }
 
             .nav-links a {
@@ -240,6 +244,11 @@
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.3s ease;
+            }
+
+            .menu-overlay.active {
+                opacity: 1;
+                visibility: visible;
             }
 
         }
@@ -284,75 +293,6 @@
             transform: translateY(-2px);
             border-color: var(--primary-dark);
             color: var(--primary-dark);
-        }
-
-        /* ========== HEADER ========== */
-        .header {
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(8px);
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo {
-            flex: 0 0 auto;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        .logo-footer img {
-            height: 60px;
-        }
-
-        .nav-links {
-            display: flex;
-            border-radius: 20px;
-            gap: 2rem;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-cta {
-            flex: 0 0 auto;
-        }
-
-        @media (max-width: 800px) {
-
-            .nav-links {
-                order: 2;
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 1.2rem;
-            }
-
-            .nav-cta {
-                order: 3;
-            }
-
-            .logo {
-                order: 1;
-            }
         }
 
         /* ========== HERO ========== */
@@ -1062,36 +1002,6 @@
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
         }
 
-        /* ========== ELEMENTOS QUE GUIAM O SCROLL ========== */
-        /* Indicador sutil de scroll no hero */
-        .scroll-indicator {
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .scroll-indicator i {
-            font-size: 1.5rem;
-            color: var(--primary);
-            opacity: 0.6;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateX(-50%) translateY(0);
-            }
-
-            50% {
-                transform: translateX(-50%) translateY(10px);
-            }
-        }
-
         /* Linha de conexão entre seções */
         section {
             position: relative;
@@ -1181,9 +1091,332 @@
             section {
                 padding: 60px 0;
             }
+
+            /* Ajustes de animação para mobile */
+            .reveal,
+            .reveal-left,
+            .reveal-right,
+            .reveal-scale {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .reveal.visible,
+            .reveal-left.visible,
+            .reveal-right.visible,
+            .reveal-scale.visible {
+                opacity: 1;
+                transform: none;
+            }
+
+            .delay-1,
+            .delay-2,
+            .delay-3,
+            .delay-4,
+            .delay-5 {
+                transition-delay: 0s;
+            }
+
+            .zoom-on-scroll img {
+                transition: none;
+            }
+
+            .zoom-on-scroll.visible img {
+                transform: none;
+            }
+
+            .scroll-indicator {
+                bottom: -20px;
+            }
+
+            .scroll-indicator .scroll-text {
+                display: none;
+            }
+
+            .hero-particles {
+                display: none;
+            }
+
+            .scroll-progress {
+                height: 2px;
+            }
+
+            .methodology-card:hover {
+                transform: none;
+            }
+
+            .service-full-card:hover {
+                transform: none;
+            }
+
+            .feature-card:hover {
+                transform: none;
+            }
+
+            .gallery-item:hover {
+                transform: none;
+            }
+
+            .training-list li:hover {
+                transform: none;
+                background: none;
+            }
         }
 
-        /* ========== ANIMAÇÕES ========== */
+        /* Ajustes para telas muito pequenas */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-sub {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .cta-group .btn-primary,
+            .cta-group .btn-outline {
+                width: 100%;
+                text-align: center;
+            }
+
+            .trust-badge {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .methodology-card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .service-full-card {
+                padding: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .history-images {
+                grid-template-columns: 1fr;
+            }
+
+            .history-image-main {
+                aspect-ratio: 9 / 9;
+            }
+
+            .training-visual {
+                width: 100%;
+            }
+
+            .training-video-placeholder {
+                aspect-ratio: 9 / 16;
+                max-height: 60vh;
+            }
+
+            .services-full-grid {
+                gap: 1rem;
+            }
+
+            .methodology-steps {
+                gap: 1rem;
+            }
+
+            .cards-grid {
+                gap: 1rem;
+            }
+
+            .gallery-grid {
+                gap: 1rem;
+            }
+
+            .scroll-indicator i {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ========== ANIMAÇÕES DE SCROLL (REVEAL) ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.2, 0, 0, 1),
+                        transform 0.7s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.7s cubic-bezier(0.2, 0, 0, 1),
+                        transform 0.7s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.7s cubic-bezier(0.2, 0, 0, 1),
+                        transform 0.7s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s cubic-bezier(0.2, 0, 0, 1),
+                        transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Delay helpers */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* ========== SCROLL PROGRESS BAR ========== */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            z-index: 1001;
+            width: 0%;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        /* ========== PARALLAX SUTIL ========== */
+        .parallax-bg {
+            transform: translateY(0);
+            transition: transform 0.1s linear;
+            will-change: transform;
+        }
+
+        /* ========== HERO SCROLL INDICATOR MELHORADO ========== */
+        .scroll-indicator {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .scroll-indicator:hover {
+            opacity: 1;
+        }
+
+        .scroll-indicator i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .scroll-indicator .scroll-text {
+            display: block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-gray);
+            margin-top: 4px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
+        /* ========== ANIMAÇÃO DE CONTADOR ========== */
+        .counter-value {
+            display: inline-block;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ========== ANIMAÇÃO DE PARTÍCULAS NO HERO ========== */
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float-particle 8s infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; width: 4px; height: 4px; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 1s; width: 6px; height: 6px; }
+        .particle:nth-child(3) { left: 35%; animation-delay: 2s; width: 3px; height: 3px; }
+        .particle:nth-child(4) { left: 50%; animation-delay: 0.5s; width: 5px; height: 5px; }
+        .particle:nth-child(5) { left: 65%; animation-delay: 3s; width: 4px; height: 4px; }
+        .particle:nth-child(6) { left: 75%; animation-delay: 1.5s; width: 7px; height: 7px; }
+        .particle:nth-child(7) { left: 85%; animation-delay: 2.5s; width: 3px; height: 3px; }
+        .particle:nth-child(8) { left: 95%; animation-delay: 0.8s; width: 5px; height: 5px; }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* ========== ANIMAÇÃO DE HOVER NOS CARDS ========== */
         .feature-card,
         .service-full-card,
         .gallery-item,
@@ -1196,6 +1429,115 @@
             transform: translateY(-6px);
             box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
         }
+
+        /* Glow sutil nos cards ao hover */
+        .feature-card::after,
+        .service-full-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            background: linear-gradient(135deg, var(--primary), transparent, var(--primary-light));
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .feature-card:hover::after,
+        .service-full-card:hover::after {
+            opacity: 0.15;
+        }
+
+        .feature-card,
+        .service-full-card {
+            position: relative;
+        }
+
+        /* ========== ANIMAÇÃO DE TEXTO DIGITADO NO HERO ========== */
+        .typing-text {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid var(--primary);
+            animation: typing 3s steps(30) 1s forwards, blink-caret 0.75s step-end infinite;
+            max-width: 0;
+        }
+
+        @keyframes typing {
+            from { max-width: 0; }
+            to { max-width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            50% { border-color: transparent; }
+        }
+
+        /* ========== ANIMAÇÃO DE ONDA NO HERO ========== */
+        .hero-wave {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .hero-wave svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ========== ANIMAÇÃO DE IMAGENS COM ZOOM SUTIL ========== */
+        .zoom-on-scroll {
+            overflow: hidden;
+        }
+
+        .zoom-on-scroll img {
+            transition: transform 1.5s cubic-bezier(0.2, 0, 0, 1);
+            will-change: transform;
+        }
+
+        .zoom-on-scroll.visible img {
+            transform: scale(1.05);
+        }
+
+        /* ========== ANIMAÇÃO DE BORDA GRADIENTE ========== */
+        .gradient-border {
+            position: relative;
+        }
+
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light), var(--primary));
+            background-size: 200% 200%;
+            animation: gradient-shift 3s ease infinite;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
     </style>
 </head>
 
@@ -1228,19 +1570,33 @@
     </header>
 
     <main>
+        <!-- ========== SCROLL PROGRESS BAR ========== -->
+        <div class="scroll-progress" id="scrollProgress"></div>
+
         <!-- ========== HERO ========== -->
         <section class="hero">
-            <div class="hero-bg"></div>
+            <div class="hero-bg parallax-bg" id="heroBg"></div>
+            <!-- Partículas flutuantes -->
+            <div class="hero-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
             <div class="container hero-content">
-                <h1>Levando você ao <span class="italic-impact">próximo nível</span> da sua performance</h1>
-                <div class="hero-sub">Fortalecimento muscular especializado para esportes de endurance e atletas que
+                <h1 class="reveal visible">Levando você ao <span class="italic-impact">próximo nível</span> da sua performance</h1>
+                <div class="hero-sub reveal visible delay-1">Fortalecimento muscular especializado para esportes de endurance e atletas que
                     buscam alta performance. Um ambiente pensado para você que não se encaixa em academias
                     convencionais.</div>
-                <div class="cta-group">
+                <div class="cta-group reveal visible delay-2">
                     <a href="#" class="btn-primary">Quero meu treino personalizado →</a>
                     <a href="#" class="btn-outline">Conheça o espaço</a>
                 </div>
-                <div class="trust-badge">
+                <div class="trust-badge reveal visible delay-3">
                     <div class="avatar-group">
                         <span style="background-image: url('images/foto1.png'); background-size: cover;"></span>
                         <span style="background-image: url('images/foto2.png'); background-size: cover;"></span>
@@ -1251,6 +1607,7 @@
                 </div>
                 <div class="scroll-indicator">
                     <i class="fas fa-chevron-down"></i>
+                    <span class="scroll-text">Role para conhecer</span>
                 </div>
             </div>
         </section>
@@ -1260,25 +1617,25 @@
             <div class="container">
                 <div class="history-layout">
                     <div class="history-images">
-                        <div class="history-image-main">
+                        <div class="history-image-main zoom-on-scroll reveal-left">
                             <img src="images/historia.jpg" alt="Alex Binotti">
                         </div>
-                        <div class="history-image-main">
+                        <div class="history-image-main zoom-on-scroll reveal-left delay-2">
                             <img src="images/historia2.jpg" alt="Espaço Binotti Performance">
                         </div>
                     </div>
                     <div class="history-content">
-                        <span class="section-label">Nossa História</span>
-                        <h2>Nascida para atletas que buscam mais</h2>
-                        <p>Em 2023, começou a nossa história. Nosso fundador, <strong>Alex Binotti</strong> —
+                        <span class="section-label reveal">Nossa História</span>
+                        <h2 class="reveal delay-1">Nascida para atletas que buscam mais</h2>
+                        <p class="reveal delay-2">Em 2023, começou a nossa história. Nosso fundador, <strong>Alex Binotti</strong> —
                             profissional de Educação Física e praticante de esportes de endurance —, conhecendo a
                             importância do fortalecimento muscular para um bom desempenho esportivo e ciente de que
                             muitos atletas dessa modalidade não gostam de frequentar academias convencionais, criou a
                             Binotti Performance.</p>
-                        <p>Um espaço pensado para atender desde atletas iniciantes até aqueles que buscam alta
+                        <p class="reveal delay-3">Um espaço pensado para atender desde atletas iniciantes até aqueles que buscam alta
                             performance, oferecendo treinos de qualidade em um ambiente agradável, tornando mais
                             acessível e prazerosa a prática do fortalecimento muscular.</p>
-                        <div class="history-signature">
+                        <div class="history-signature reveal delay-4">
                             <i class="fas fa-quote-right"></i>
                             <span>Alex Binotti, fundador</span>
                         </div>
@@ -1290,23 +1647,20 @@
         <!-- ========== GALERIA DO ESPAÇO ========== -->
         <section class="gallery-section">
             <div class="container">
-                <span class="section-label">Nosso Espaço</span>
-                <h2>Um ambiente feito para você evoluir</h2>
+                <span class="section-label reveal">Nosso Espaço</span>
+                <h2 class="reveal delay-1">Um ambiente feito para você evoluir</h2>
                 <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618f8f?q=80&w=2070&auto=format"
+                    <div class="gallery-item reveal-scale delay-1">
+                        <img src="images/espaco2.JPEG"
                             alt="Área de treino">
-                        <div class="gallery-overlay">Área de treino funcional</div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1534258936925-58e4d2b1e1e4?q=80&w=2070&auto=format"
+                    <div class="gallery-item reveal-scale delay-2">
+                        <img src="images/espaco1.png"
                             alt="Equipamentos">
-                        <div class="gallery-overlay">Equipamentos de última geração</div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=2070&auto=format"
+                    <div class="gallery-item reveal-scale delay-3">
+                        <img src="images/espaco3.JPEG"
                             alt="Atendimento">
-                        <div class="gallery-overlay">Atendimento individualizado</div>
                     </div>
                 </div>
             </div>
@@ -1316,36 +1670,36 @@
         <section>
             <div class="container training-showcase">
                 <div class="training-content">
-                    <span class="section-label">Na Prática</span>
-                    <h2>Você nunca treina <span class="italic-impact">sozinho</span></h2>
-                    <p class="training-highlight">Diferente de academias lotadas, aqui cada movimento é
+                    <span class="section-label reveal">Na Prática</span>
+                    <h2 class="reveal delay-1">Você nunca treina <span class="italic-impact">sozinho</span></h2>
+                    <p class="training-highlight reveal delay-2">Diferente de academias lotadas, aqui cada movimento é
                         <strong>observado, corrigido e ajustado</strong> em tempo real.
                     </p>
 
                     <!-- Lista de diferenciais -->
                     <ul class="training-list">
-                        <li>
+                        <li class="reveal-left delay-1">
                             <i class="fas fa-user-check"></i>
                             <div>
                                 <strong>Correção postural constante</strong>
                                 <span>Ajustes em tempo real para garantir a execução correta</span>
                             </div>
                         </li>
-                        <li>
+                        <li class="reveal-left delay-2">
                             <i class="fas fa-chart-line"></i>
                             <div>
                                 <strong>Carga individualizada</strong>
                                 <span>Volume e intensidade ajustados especificamente para você</span>
                             </div>
                         </li>
-                        <li>
+                        <li class="reveal-left delay-3">
                             <i class="fas fa-heartbeat"></i>
                             <div>
                                 <strong>Prevenção de lesões</strong>
                                 <span>Monitoramento da execução para evitar compensações e sobrecargas</span>
                             </div>
                         </li>
-                        <li>
+                        <li class="reveal-left delay-4">
                             <i class="fas fa-comments"></i>
                             <div>
                                 <strong>Feedback contínuo</strong>
@@ -1354,10 +1708,10 @@
                         </li>
                     </ul>
 
-                    <a href="#" class="btn-primary">Falar no Whatsapp →</a>
+                    <a href="#" class="btn-primary reveal delay-5">Falar no Whatsapp →</a>
                 </div>
 
-                <div class="training-visual">
+                <div class="training-visual reveal-right delay-2">
                     <div class="training-video-placeholder">
                         <video src="./videos/videopage.mp4" controls autoplay muted
                             style="max-width: 100%; height: auto;">
@@ -1375,13 +1729,13 @@
         <section class="methodology-section">
             <div class="container">
                 <div class="methodology-header">
-                    <span class="section-label">Metodologia Exclusiva</span>
-                    <h2>Como transformamos <span class="italic-impact">seu treino</span></h2>
-                    <p class="methodology-intro">Diferente das academias convencionais, nossa metodologia segue uma
+                    <span class="section-label reveal">Metodologia Exclusiva</span>
+                    <h2 class="reveal delay-1">Como transformamos <span class="italic-impact">seu treino</span></h2>
+                    <p class="methodology-intro reveal delay-2">Diferente das academias convencionais, nossa metodologia segue uma
                         sequência científica que prepara seu corpo para evoluir com segurança e eficiência.</p>
                 </div>
                 <div class="methodology-steps">
-                    <div class="methodology-card">
+                    <div class="methodology-card reveal-scale delay-1">
                         <div class="methodology-number">01</div>
                         <div class="methodology-icon"><i class="fas fa-hand-holding-heart"></i></div>
                         <h3>Liberação Miofascial</h3>
@@ -1390,7 +1744,7 @@
                         <div class="methodology-benefit"><i class="fas fa-check-circle"></i><span>Redução de tensões e
                                 dores</span></div>
                     </div>
-                    <div class="methodology-card">
+                    <div class="methodology-card reveal-scale delay-2">
                         <div class="methodology-number">02</div>
                         <div class="methodology-icon"><i class="fas fa-arrows-alt"></i></div>
                         <h3>Mobilidade</h3>
@@ -1398,7 +1752,7 @@
                         <div class="methodology-benefit"><i class="fas fa-check-circle"></i><span>Mais amplitude de
                                 movimento</span></div>
                     </div>
-                    <div class="methodology-card">
+                    <div class="methodology-card reveal-scale delay-3">
                         <div class="methodology-number">03</div>
                         <div class="methodology-icon"><i class="fas fa-bolt"></i></div>
                         <h3>Ativação Neuromuscular</h3>
@@ -1406,7 +1760,7 @@
                         <div class="methodology-benefit"><i class="fas fa-check-circle"></i><span>Melhor recrutamento
                                 muscular</span></div>
                     </div>
-                    <div class="methodology-card">
+                    <div class="methodology-card reveal-scale delay-4">
                         <div class="methodology-number">04</div>
                         <div class="methodology-icon"><i class="fas fa-dumbbell"></i></div>
                         <h3>Força Funcional</h3>
@@ -1416,7 +1770,7 @@
                                 força</span></div>
                     </div>
                 </div>
-                <div class="methodology-cta">
+                <div class="methodology-cta reveal">
                     <p><strong>Enquanto academias convencionais pulam etapas, nós preparamos seu corpo de forma
                             completa.</strong> Resultado: menos lesões, mais evolução.</p>
                     <a href="#" class="btn-primary">Agende uma aula experimental →</a>
@@ -1428,17 +1782,17 @@
         <section>
             <div class="container">
                 <div class="cards-grid">
-                    <div class="feature-card dark">
+                    <div class="feature-card dark reveal-scale delay-1">
                         <div class="card-icon"><i class="fas fa-chart-line"></i></div>
                         <div class="card-title">FAÇA TREINOS MELHORES</div>
                         <p>Programas individualizados que respeitam sua modalidade e objetivos.</p>
                     </div>
-                    <div class="feature-card image-card">
+                    <div class="feature-card image-card reveal-scale delay-2">
                         <div class="card-icon"><i class="fas fa-bullseye"></i></div>
                         <div class="card-title">ESTEJA PRONTO</div>
                         <p>Desenvolvemos resistência, força funcional e preparo físico para levar você além.</p>
                     </div>
-                    <div class="feature-card light">
+                    <div class="feature-card light reveal-scale delay-3">
                         <div class="card-icon"><i class="fas fa-dumbbell"></i></div>
                         <div class="card-title">AMBIENTE ACOLHEDOR</div>
                         <p>Um estúdio planejado para que o fortalecimento seja prazeroso e eficiente.</p>
@@ -1449,7 +1803,7 @@
 
         <!-- ========== DEPOIMENTO ========== -->
         <section class="metrics-section">
-            <div class="container" style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <div class="container reveal" style="text-align: center; max-width: 800px; margin: 0 auto;">
                 <i class="fas fa-quote-left"
                     style="font-size: 2rem; color: var(--primary); opacity: 0.6; margin-bottom: 1rem; display: inline-block;"></i>
                 <p style="font-size: 1.25rem; line-height: 1.4; font-style: italic; color: var(--dark);">"Procurei o
@@ -1464,50 +1818,50 @@
         <section id="servicos" class="services-full-section">
             <div class="container">
                 <div class="services-header">
-                    <span class="section-label">Estrutura Completa</span>
-                    <h2>Mais que treino: <span class="italic-impact">cuidado integral</span></h2>
-                    <p class="services-intro">Da preparação à recuperação, oferecemos tudo que você precisa em um só
+                    <span class="section-label reveal">Estrutura Completa</span>
+                    <h2 class="reveal delay-1">Mais que treino: <span class="italic-impact">cuidado integral</span></h2>
+                    <p class="services-intro reveal delay-2">Da preparação à recuperação, oferecemos tudo que você precisa em um só
                         lugar.</p>
                 </div>
                 <div class="services-full-grid">
-                    <div class="service-full-card">
+                    <div class="service-full-card reveal-scale delay-1">
                         <div class="service-full-icon"><i class="fas fa-dumbbell"></i></div>
                         <h3>Treinamento Personalizado</h3>
                         <p>Metodologia exclusiva com Liberação Miofascial, Mobilidade, Ativação e Força.</p>
                         <div class="service-tag">Endurance | Força | Performance</div>
                     </div>
-                    <div class="service-full-card">
+                    <div class="service-full-card reveal-scale delay-2">
 <div class="service-full-icon"><i class="fas fa-hand-sparkles"></i></div>
                         <h3>Fisioterapia Esportiva</h3>
                         <p>Avaliação e tratamento de lesões, terapia manual e prevenção.</p>
                         <div class="service-tag">Lesões | Prevenção | Recuperação</div>
                     </div>
-                    <div class="service-full-card">
+                    <div class="service-full-card reveal-scale delay-3">
                         <div class="service-full-icon"><i class="fas fa-apple-alt"></i></div>
                         <h3>Nutrição Esportiva</h3>
                         <p>Plano alimentar personalizado para performance e suplementação estratégica.</p>
                         <div class="service-tag">Performance | Emagrecimento</div>
                     </div>
-                    <div class="service-full-card">
+                    <div class="service-full-card reveal-scale delay-4">
                         <div class="service-full-icon"><i class="fas fa-bed"></i></div>
                         <h3>Recovery & Regeneração</h3>
                         <p>Técnicas avançadas para acelerar a recuperação muscular.</p>
                         <div class="service-tag">Regeneração | Performance</div>
                     </div>
-                    <div class="service-full-card">
+                    <div class="service-full-card reveal-scale delay-5">
                         <div class="service-full-icon"><i class="fas fa-compress-alt"></i></div>
                         <h3>Bota Pneumática</h3>
                         <p>Compressão pneumática para drenagem linfática e recuperação acelerada.</p>
                         <div class="service-tag">Recuperação | Drenagem</div>
                     </div>
-                    <div class="service-full-card">
+                    <div class="service-full-card reveal-scale delay-5">
                         <div class="service-full-icon"><i class="fas fa-snowflake"></i></div>
                         <h3>Crioimersão</h3>
                         <p>Terapia de frio extremo para redução da inflamação e alívio de dores.</p>
                         <div class="service-tag">Crioterapia | Inflamação</div>
                     </div>
                 </div>
-                <div class="services-full-cta">
+                <div class="services-full-cta reveal">
                     <p><strong>Estrutura completa para aqueles que desejam um treinamento de alto nível.</strong> Não
                         deixe sua saúde para depois.</p>
                 </div>
@@ -1517,11 +1871,11 @@
         <!-- ========== FINAL CTA ========== -->
         <section class="final-cta">
             <div class="container">
-                <h2>Venha fazer parte do nosso <span class="italic-impact" style="color: var(--primary);">estúdio de
+                <h2 class="reveal">Venha fazer parte do nosso <span class="italic-impact" style="color: var(--primary);">estúdio de
                         treinamento</span> !</h2>
-                <p style="max-width: 550px; margin: 0 auto 2rem; color: var(--text-gray);">Tenha o seu treino
+                <p class="reveal delay-1" style="max-width: 550px; margin: 0 auto 2rem; color: var(--text-gray);">Tenha o seu treino
                     personalizado agora mesmo, em um ambiente projetado para sua evolução.</p>
-                <a href="#" class="btn-primary">Agendar Aula Experimental →</a>
+                <a href="#" class="btn-primary reveal delay-2">Agendar Aula Experimental →</a>
             </div>
         </section>
     </main>
@@ -1559,7 +1913,7 @@
         </div>
     </footer>
     <script>
-        // Menu mobile
+        // ========== MENU MOBILE ==========
         const mobileBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
 
@@ -1598,17 +1952,7 @@
         // ========== LINK DO WHATSAPP CENTRALIZADO ==========
         const WHATSAPP_LINK = "https://wa.me/message/GJFGR4HKOLGLP1";
 
-        // ========== EVENTO DE CONVERSÃO DO GOOGLE ADS ==========
-        function trackWhatsAppConversion() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-17546606558/H77LCMjeuqYbEN7v765B'
-                });
-                console.log('✅ Conversão do WhatsApp registrada no Google Ads');
-            }
-        }
-
-        // Aplicar link e rastrear conversão
+        // Aplicar link e rastrear conversão com gtagSendEvent
         document.addEventListener('DOMContentLoaded', function () {
             const waButtons = document.querySelectorAll('.btn-primary, .btn-outline');
 
@@ -1618,24 +1962,170 @@
                     return;
                 }
 
-                // Aplica o link do WhatsApp
-                button.href = WHATSAPP_LINK;
-                button.setAttribute('target', '_blank');
+                // Remove href para evitar navegação direta
+                button.removeAttribute('href');
+                button.removeAttribute('target');
 
-                // Adiciona o rastreamento de conversão
-                button.addEventListener('click', function () {
-                    trackWhatsAppConversion();
+                // Adiciona o clique que dispara o evento gtag antes de navegar
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    gtagSendEvent(WHATSAPP_LINK);
                 });
             });
 
-            // Também rastreia o botão do header desktop (que já tem link direto)
+            // Também aplica no botão do header desktop
             const desktopCta = document.querySelector('.desktop-cta .btn-primary');
             if (desktopCta) {
-                desktopCta.addEventListener('click', function () {
-                    trackWhatsAppConversion();
+                desktopCta.removeAttribute('href');
+                desktopCta.removeAttribute('target');
+                desktopCta.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    gtagSendEvent(WHATSAPP_LINK);
                 });
             }
+
+            // ========== INICIALIZAR ANIMAÇÕES ==========
+            initScrollAnimations();
+            initScrollProgress();
+            initParallax();
+            initCounters();
         });
+
+        // ========== SCROLL REVEAL ANIMATIONS (INTERSECTION OBSERVER) ==========
+        function initScrollAnimations() {
+            const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .zoom-on-scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Para zoom-on-scroll, também adiciona visible
+                        if (entry.target.classList.contains('zoom-on-scroll')) {
+                            entry.target.classList.add('visible');
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            revealElements.forEach(el => observer.observe(el));
+        }
+
+        // ========== SCROLL PROGRESS BAR ==========
+        function initScrollProgress() {
+            const progressBar = document.getElementById('scrollProgress');
+
+            window.addEventListener('scroll', function () {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                progressBar.style.width = scrollPercent + '%';
+            });
+        }
+
+        // ========== PARALLAX SUTIL NO HERO ==========
+        function initParallax() {
+            const heroBg = document.getElementById('heroBg');
+
+            window.addEventListener('scroll', function () {
+                const scrollTop = window.scrollY;
+                if (scrollTop < window.innerHeight) {
+                    heroBg.style.transform = 'translateY(' + (scrollTop * 0.3) + 'px)';
+                }
+            });
+        }
+
+        // ========== CONTADORES ANIMADOS ==========
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter-value');
+
+            if (counters.length === 0) return;
+
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const targetValue = parseInt(target.getAttribute('data-target'));
+                        const duration = parseInt(target.getAttribute('data-duration')) || 2000;
+                        animateCounter(target, targetValue, duration);
+                        counterObserver.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => counterObserver.observe(counter));
+        }
+
+        function animateCounter(element, target, duration) {
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing suave (ease-out quad)
+                const eased = 1 - Math.pow(1 - progress, 2);
+                const currentValue = Math.floor(eased * target);
+
+                element.textContent = currentValue;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    element.textContent = target;
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // ========== SCROLL INDICATOR CLICK ==========
+        document.querySelector('.scroll-indicator')?.addEventListener('click', function () {
+            const sobreSection = document.getElementById('sobre');
+            if (sobreSection) {
+                sobreSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // ========== HEADER SHRINK ON SCROLL ==========
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.02)';
+            }
+        });
+    </script>
+
+    <!-- Google tag (gtag.js) event -->
+    <script>
+        gtag('event', 'page_view_binotti', {
+            // <event_parameters>
+        });
+    </script>
+
+    <!-- Google tag (gtag.js) event - delayed navigation helper -->
+    <script>
+        // Helper function to delay opening a URL until a gtag event is sent.
+        // Call it in response to an action that should navigate to a URL.
+        function gtagSendEvent(url) {
+            var callback = function () {
+                if (typeof url === 'string') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'whatsapp_binotti', {
+                'event_callback': callback,
+                'event_timeout': 2000,
+                // <event_parameters>
+            });
+            return false;
+        }
     </script>
 </body>
 
