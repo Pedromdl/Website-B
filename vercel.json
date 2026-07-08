@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/pilates", "destination": "/pilates.html" }
+  ],
+  "functions": {
+    "api/conversion.js": {
+      "maxDuration": 10
+    }
+  }
+}

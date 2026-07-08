@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+    <meta name="facebook-domain-verification" content="xsnsqps6sbap7ov0yl24cbmousskdc" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- Google tag (gtag.js) -->
@@ -14,6 +15,36 @@
         gtag('config', 'G-JRN3H1B71Y');
         gtag('config', 'AW-17546606558');
     </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '936439661476013');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=936439661476013&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "x82nxc35jj");
+    </script>
+    <!-- End Microsoft Clarity -->
 
     <title>Binotti Performance | Treinamento Especializado em Florianópolis</title>
 
@@ -1557,13 +1588,14 @@
 
             <nav class="nav-links" id="navLinks">
                 <a href="#sobre">Sobre</a>
+                <a href="pilates.html">Pilates</a>
                 <a href="#servicos">Serviços</a>
                 <a href="#contato">Contato</a>
                 <a href="#" class="btn-primary mobile-cta">Agendar Aula Experimental</a>
             </nav>
 
             <div class="nav-cta desktop-cta">
-                <a href="https://wa.me/message/GJFGR4HKOLGLP1" class="btn-primary" target="_blank">Agendar Aula
+                <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary" target="_blank">Agendar Aula
                     Experimental</a>
             </div>
         </div>
@@ -1899,7 +1931,7 @@
                 <div class="footer-social">
                     <a href="https://www.instagram.com/binotti.performance" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-instagram"></i>
-                    </a> <a href="https://wa.me/message/GJFGR4HKOLGLP1" target="_blank" rel="noopener noreferrer"><i
+                    </a> <a href="https://wa.me/message/57G7B7LRYFAOM1" target="_blank" rel="noopener noreferrer"><i
                             class="fab fa-whatsapp"></i></a>
                     <a href="#"><i class="fab fa-facebook"></i></a>
                 </div>
@@ -1950,7 +1982,38 @@
         });
 
         // ========== LINK DO WHATSAPP CENTRALIZADO ==========
-        const WHATSAPP_LINK = "https://wa.me/message/GJFGR4HKOLGLP1";
+        const WHATSAPP_LINK = "https://wa.me/message/57G7B7LRYFAOM1";
+
+        // Função para enviar evento para a API de Conversões do Meta
+        function sendConversionAPI(eventName, userData) {
+            var payload = {
+                eventName: eventName,
+                userData: userData || {},
+                customData: {
+                    source: 'index_page',
+                    currency: 'BRL'
+                }
+            };
+
+            // Obter cookies fbc e fbp se existirem
+            function getCookie(name) {
+                var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                return match ? match[2] : null;
+            }
+            var fbp = getCookie('_fbp');
+            var fbc = getCookie('_fbc');
+            if (fbp) payload.userData.fbp = fbp;
+            if (fbc) payload.userData.fbc = fbc;
+
+            // Enviar para a API (fire-and-forget, não bloqueia)
+            fetch('/api/conversion', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).catch(function(err) {
+                console.log('CAPI send (non-blocking):', err);
+            });
+        }
 
         // Aplicar link e rastrear conversão com gtagSendEvent
         document.addEventListener('DOMContentLoaded', function () {
@@ -1969,7 +2032,13 @@
                 // Adiciona o clique que dispara o evento gtag antes de navegar
                 button.addEventListener('click', function (e) {
                     e.preventDefault();
+                    fbq('track', 'Lead');
                     gtagSendEvent(WHATSAPP_LINK);
+                    // API de Conversões (servidor)
+                    sendConversionAPI('Lead', {
+                        clientIp: '',
+                        clientUserAgent: navigator.userAgent
+                    });
                 });
             });
 
@@ -1980,7 +2049,13 @@
                 desktopCta.removeAttribute('target');
                 desktopCta.addEventListener('click', function (e) {
                     e.preventDefault();
+                    fbq('track', 'Lead');
                     gtagSendEvent(WHATSAPP_LINK);
+                    // API de Conversões (servidor)
+                    sendConversionAPI('Lead', {
+                        clientIp: '',
+                        clientUserAgent: navigator.userAgent
+                    });
                 });
             }
 

@@ -48,12 +48,12 @@
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-
     <style>
+
         /* ============================================
            VARIÁVEIS
            ============================================ */
@@ -68,62 +68,9 @@
             --glass: rgba(255,255,255,0.08);
             --glass-hover: rgba(255,255,255,0.12);
             --container: 1320px;
-            --gap-section: 140px;
+            --gap-section: 120px;
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-serif: Georgia, 'Times New Roman', serif;
-
-        }
-
-        /* ============================================
-           LOADER / SPLASH SCREEN
-           ============================================ */
-        .page-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--dark);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.8s cubic-bezier(0.2, 0, 0, 1);
-        }
-
-        .page-loader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .page-loader img {
-            height: 56px;
-            width: auto;
-            filter: brightness(0) invert(1);
-            margin-bottom: 2rem;
-            animation: loaderPulse 2s ease-in-out infinite;
-        }
-
-        .loader-bar {
-            width: 120px;
-            height: 2px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .loader-bar-inner {
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
-
-        @keyframes loaderPulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
         }
 
         /* ============================================
@@ -133,7 +80,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 100px;
+            scroll-padding-top: 0px;
             overflow-x: hidden;
         }
 
@@ -146,7 +93,6 @@
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
         }
-
 
         .container {
             max-width: var(--container);
@@ -292,25 +238,6 @@
         }
 
         /* ============================================
-           MOBILE OVERLAY
-           ============================================ */
-        .mobile-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.4);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-overlay.open { opacity: 1; visibility: visible; }
-
-
-        /* ============================================
            HERO
            ============================================ */
         .hero {
@@ -338,7 +265,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(25,25,25,0.55) 0%, rgba(25,25,25,0.35) 40%, rgba(25,25,25,0.60) 100%);
+            background: linear-gradient(180deg, rgba(25,25,25,0.60) 0%, rgba(25,25,25,0.35) 40%, rgba(25,25,25,0.65) 100%);
             z-index: 1;
         }
 
@@ -366,18 +293,47 @@
             -webkit-backdrop-filter: blur(8px);
         }
 
-        .hero-logo { margin-bottom: 1rem; }
+        .hero-logo {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
 
         .hero-logo img {
             height: 48px;
             width: auto;
-            margin: 0 auto;
             filter: brightness(0) invert(1);
+        }
+
+        .hero-instagram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.6);
+            font-size: 1.2rem;
+            transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+            border: 1px solid rgba(255,255,255,0.12);
+            flex-shrink: 0;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .hero-instagram:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.25);
+            color: #fff;
+            transform: scale(1.08);
         }
 
         .hero-title {
             font-family: var(--font-sans);
-            font-size: 5rem;
+            font-size: 4.5rem;
             font-weight: 300;
             line-height: 1;
             letter-spacing: -0.03em;
@@ -392,13 +348,71 @@
             color: var(--gold-light);
         }
 
+        .hero-subline {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            color: rgba(255,255,255,0.8);
+            margin-top: 0.75rem;
+            min-height: 2.4rem;
+        }
+
+        .text-rotate {
+            display: inline-block;
+            position: relative;
+            color: var(--gold-light);
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 400;
+            min-width: 120px;
+            text-align: left;
+        }
+
+        .text-rotate .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            position: absolute;
+            left: 0;
+            white-space: nowrap;
+        }
+
+        .text-rotate .word.active {
+            opacity: 1;
+            transform: translateY(0);
+            position: relative;
+        }
+
+        .text-rotate .word.exit {
+            opacity: 0;
+            transform: translateY(-12px);
+        }
+
+        .text-rotate-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.4em;
+            background: var(--gold-light);
+            margin-left: 4px;
+            vertical-align: text-bottom;
+            animation: blink-cursor 0.8s step-end infinite;
+        }
+
+        @keyframes blink-cursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
         .hero-sub {
             font-family: var(--font-sans);
             font-size: 1.15rem;
             font-weight: 300;
             line-height: 1.6;
             color: rgba(255,255,255,0.7);
-            max-width: 550px;
+            max-width: 600px;
             margin: 0 auto 1.5rem;
         }
 
@@ -440,53 +454,275 @@
         }
 
         /* ============================================
-           SEÇÃO: INTRODUÇÃO PILATES
+           SEÇÃO: SEGURANÇA (CARDS DE CONFIANÇA)
            ============================================ */
-        .intro-section { padding: var(--gap-section) 0; }
+        .trust-section {
+            padding: var(--gap-section) 0;
+            background: linear-gradient(180deg, var(--bg) 0%, rgba(200,164,106,0.03) 100%);
+        }
 
-        .intro-grid {
+        .trust-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .intro-image {
-            border-radius: 40px;
+        .trust-card {
+            position: relative;
+            padding: 3rem 2.5rem;
+            background: #fff;
+            border-radius: 28px;
+            transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
+            border: 1px solid rgba(27,27,27,0.04);
+            box-shadow: 0 10px 40px -15px rgba(0,0,0,0.04);
             overflow: hidden;
-            aspect-ratio: 4/5;
-            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.15);
         }
 
-        .intro-image img {
+        .trust-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.2, 0, 0, 1);
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
-        .intro-image:hover img { transform: scale(1.05); }
+        .trust-card:hover::before { opacity: 1; }
 
-        .intro-content .section-text { margin-bottom: 1.5rem; }
-
-        .intro-highlight {
-            margin-top: 2rem;
-            padding: 1.5rem 2rem;
-            border-left: 3px solid var(--gold);
-            background: rgba(200, 164, 106, 0.06);
-            border-radius: 0 16px 16px 0;
+        .trust-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 60px -20px rgba(200, 164, 106, 0.15);
+            border-color: rgba(200, 164, 106, 0.12);
         }
 
-        .intro-highlight p {
-            font-family: var(--font-serif);
+        .trust-icon {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 1.25rem;
+            background: rgba(200, 164, 106, 0.08);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--gold);
+            transition: all 0.4s ease;
+        }
+
+        .trust-card:hover .trust-icon {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .trust-card h3 {
+            font-family: var(--font-sans);
             font-size: 1.2rem;
-            font-style: italic;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
             color: var(--text);
-            line-height: 1.6;
+        }
+
+        .trust-card p {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
         }
 
         /* ============================================
-           SEÇÃO: NÚMEROS
+           SEÇÃO: PROCESSO DE CUIDADO (CARDS)
+           ============================================ */
+        .care-section {
+            padding: var(--gap-section) 0;
+        }
+
+        .care-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .care-step {
+            position: relative;
+            padding: 2.5rem 2rem;
+            background: #fff;
+            border-radius: 28px;
+            transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
+            border: 1px solid rgba(27,27,27,0.04);
+            box-shadow: 0 10px 40px -15px rgba(0,0,0,0.04);
+            display: flex;
+            gap: 1.5rem;
+            overflow: hidden;
+        }
+
+        .care-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .care-step:hover::before { opacity: 1; }
+
+        .care-step:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 60px -20px rgba(200, 164, 106, 0.15);
+            border-color: rgba(200, 164, 106, 0.12);
+        }
+
+        .care-number {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-sans);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(200, 164, 106, 0.25);
+            transition: all 0.4s ease;
+        }
+
+        .care-step:hover .care-number {
+            transform: scale(1.08);
+            box-shadow: 0 12px 35px rgba(200, 164, 106, 0.35);
+        }
+
+        .care-step h3 {
+            font-family: var(--font-sans);
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .care-step p {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .care-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* ============================================
+           SEÇÃO: PARA QUEM É (CARDS DE BENEFÍCIO)
+           ============================================ */
+        .forwhom-section { padding: var(--gap-section) 0; }
+
+        .forwhom-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .forwhom-card {
+            position: relative;
+            padding: 2.5rem 2rem;
+            background: #fff;
+            border-radius: 28px;
+            transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
+            border: 1px solid rgba(27,27,27,0.04);
+            box-shadow: 0 10px 40px -15px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+
+        .forwhom-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .forwhom-card:hover::before { opacity: 1; }
+
+        .forwhom-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 60px -20px rgba(200, 164, 106, 0.15);
+            border-color: rgba(200, 164, 106, 0.12);
+        }
+
+        .forwhom-icon {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 1.25rem;
+            background: rgba(200, 164, 106, 0.08);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--gold);
+            transition: all 0.4s ease;
+        }
+
+        .forwhom-card:hover .forwhom-icon {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .forwhom-card h3 {
+            font-family: var(--font-sans);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: var(--text);
+        }
+
+        .forwhom-card p {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+        }
+
+        .forwhom-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gold);
+            transition: gap 0.3s ease;
+        }
+
+        .forwhom-link i { font-size: 0.7rem; transition: transform 0.3s ease; }
+
+        .forwhom-card:hover .forwhom-link { gap: 0.7rem; }
+        .forwhom-card:hover .forwhom-link i { transform: translateX(3px); }
+
+        /* ============================================
+           SEÇÃO: NÚMEROS / PROVA SOCIAL
            ============================================ */
         .numbers-section {
             background: var(--dark);
@@ -505,7 +741,7 @@
 
         .number-value {
             font-family: var(--font-sans);
-            font-size: 7rem;
+            font-size: 6rem;
             font-weight: 500;
             line-height: 1;
             background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
@@ -525,329 +761,211 @@
         }
 
         /* ============================================
-           SEÇÃO: METODOLOGIA
+           SEÇÃO: COMO FUNCIONA (3 PASSOS)
            ============================================ */
-        .methodology-section { padding: var(--gap-section) 0; }
-
-        .methodology-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .methodology-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .methodology-card {
-            padding: 3rem 2.5rem;
-            background: #fff;
-            border-radius: 32px;
-            transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
-            border: 1px solid rgba(27,27,27,0.04);
-            box-shadow: 0 10px 40px -15px rgba(0,0,0,0.04);
-        }
-
-        .methodology-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 60px -20px rgba(200, 164, 106, 0.15);
-            border-color: rgba(200, 164, 106, 0.15);
-        }
-
-        .methodology-number {
-            font-family: var(--font-serif);
-            font-size: 3rem;
-            font-weight: 300;
-            color: var(--gold);
-            line-height: 1;
-            margin-bottom: 1.5rem;
-        }
-
-        .methodology-card h3 {
-            font-family: var(--font-sans);
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .methodology-card p {
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            font-weight: 300;
-            line-height: 1.7;
-            color: var(--text-secondary);
-        }
-
-        .methodology-cta {
-            text-align: center;
-            background: var(--dark);
-            border-radius: 32px;
-            padding: 3rem;
-            color: #fff;
-            margin-top: 3rem;
-        }
-
-        .methodology-cta p {
-            font-family: var(--font-sans);
-            font-size: 1.1rem;
-            font-weight: 300;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            color: rgba(255,255,255,0.7);
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .methodology-cta p strong { color: var(--gold-light); font-weight: 500; }
-
-        /* ============================================
-           SEÇÃO: PARA QUEM É O PILATES (TABS)
-           ============================================ */
-        .tabs-section {
-            background: var(--dark);
+        .how-section {
             padding: var(--gap-section) 0;
-            color: #fff;
+            background: linear-gradient(180deg, var(--bg) 0%, rgba(200,164,106,0.03) 100%);
         }
 
-        .tabs-section .section-tag { color: var(--gold-light); }
-        .tabs-section .section-title { color: #fff; }
-        .tabs-section .section-title em { color: var(--gold-light); }
-        .tabs-section .section-text { color: rgba(255,255,255,0.6); }
-
-        .tabs-nav {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin: 3rem 0 3rem;
-        }
-
-        .tab-btn {
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.08);
-            color: rgba(255,255,255,0.4);
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
-            white-space: nowrap;
-        }
-
-        .tab-btn:hover {
-            background: rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.7);
-        }
-
-        .tab-btn.active {
-            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
-            border-color: transparent;
-            color: #fff;
-            box-shadow: 0 4px 20px rgba(200, 164, 106, 0.25);
-        }
-
-        .tab-panel {
-            display: none;
-            animation: tabFadeIn 0.6s cubic-bezier(0.2, 0, 0, 1);
-        }
-
-        .tab-panel.active { display: block; }
-
-        @keyframes tabFadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .tab-grid {
-            display: grid;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .tab-benefits {
-            list-style: none;
-            max-width: 520px;
-            margin: 0 auto;
-        }
-
-        .tab-benefits li {
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            gap: 1.25rem;
-            padding: 1.25rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-
-
-        .tab-benefits li:last-child { border-bottom: none; }
-
-        .tab-benefits li i {
-            font-size: 1.2rem;
-            color: var(--gold-light);
-            margin-top: 0.15rem;
-            min-width: 24px;
-        }
-
-        .tab-benefits li strong {
-            display: block;
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            font-weight: 500;
-            color: #fff;
-            margin-bottom: 0.25rem;
-        }
-
-        .tab-benefits li span {
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            font-weight: 300;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.6;
-        }
-
-        .tab-image {
-            border-radius: 40px;
-            overflow: hidden;
-            aspect-ratio: 4/5;
-            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.3);
-        }
-
-        .tab-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.2, 0, 0, 1);
-        }
-
-        .tab-image:hover img { transform: scale(1.05); }
-
-
-        /* ============================================
-           SEÇÃO: BENEFÍCIOS GERAIS
-           ============================================ */
-        .benefits-section { padding: var(--gap-section) 0; }
-
-        .benefits-grid {
+        .how-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 2.5rem;
             margin-top: 3rem;
+            counter-reset: step;
         }
 
-        .benefit-card {
-            padding: 2.5rem 2rem;
-            background: #fff;
-            border-radius: 32px;
+        .how-step {
             text-align: center;
-            transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
-            border: 1px solid rgba(27,27,27,0.04);
-            box-shadow: 0 10px 40px -15px rgba(0,0,0,0.04);
+            padding: 2.5rem 2rem;
+            position: relative;
         }
 
-        .benefit-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 60px -20px rgba(200, 164, 106, 0.12);
-            border-color: rgba(200, 164, 106, 0.12);
+        .how-step::after {
+            content: '';
+            position: absolute;
+            top: 3rem;
+            left: calc(50% + 3rem);
+            width: calc(100% - 6rem);
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-light), transparent);
+            opacity: 0.3;
         }
 
-        .benefit-icon {
+        .how-step:last-child::after { display: none; }
+
+        .how-number {
             width: 64px;
             height: 64px;
             margin: 0 auto 1.5rem;
-            background: rgba(200, 164, 106, 0.08);
-            border-radius: 20px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            color: var(--gold);
-            transition: all 0.4s ease;
-        }
-
-        .benefit-card:hover .benefit-icon {
-            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-        .benefit-card h3 {
             font-family: var(--font-sans);
-            font-size: 1.25rem;
-            font-weight: 400;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(200, 164, 106, 0.25);
+        }
+
+        .how-step h3 {
+            font-family: var(--font-sans);
+            font-size: 1.3rem;
+            font-weight: 500;
             margin-bottom: 0.75rem;
             color: var(--text);
         }
 
-        .benefit-card p {
+        .how-step p {
             font-family: var(--font-sans);
             font-size: 0.9rem;
             font-weight: 300;
             line-height: 1.7;
             color: var(--text-secondary);
+            max-width: 300px;
+            margin: 0 auto;
         }
 
         /* ============================================
-           SEÇÃO: DIFERENCIAIS
+           SEÇÃO: DEPOIMENTOS
            ============================================ */
-        .differentials-section {
-            background: linear-gradient(135deg, rgba(200,164,106,0.04), rgba(215,178,123,0.02));
+        .testimonials-section {
             padding: var(--gap-section) 0;
+            background: var(--dark);
+            color: #fff;
         }
 
-        .differentials-grid {
+        .testimonials-section .section-tag { color: var(--gold-light); }
+        .testimonials-section .section-title { color: #fff; }
+        .testimonials-section .section-title em { color: var(--gold-light); }
+
+        .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .differential-card {
+        .testimonial-card {
+            padding: 2.5rem 2rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 28px;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(200,164,106,0.2);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-stars {
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .testimonial-name {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .testimonial-result {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: var(--gold-light);
+        }
+
+        /* ============================================
+           SEÇÃO: POR QUE A BINOTTI (DIFERENCIAIS)
+           ============================================ */
+        .why-section {
+            padding: var(--gap-section) 0;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
             padding: 3rem 2.5rem;
-            border-radius: 32px;
+            border-radius: 28px;
             transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
         }
 
-        .differential-card.dark { background: var(--dark); color: #fff; }
+        .why-card.dark { background: var(--dark); color: #fff; }
 
-        .differential-card.gold {
+        .why-card.gold {
             background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
             color: #fff;
         }
 
-        .differential-card.light {
+        .why-card.light {
             background: #fff;
             border: 1px solid rgba(27,27,27,0.04);
             color: var(--text);
         }
 
-        .differential-card:hover {
+        .why-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 25px 60px -20px rgba(0,0,0,0.1);
         }
 
-        .differential-icon {
+        .why-icon {
             font-size: 2rem;
             margin-bottom: 1.5rem;
             opacity: 0.8;
         }
 
-        .differential-card h3 {
+        .why-card h3 {
             font-family: var(--font-sans);
             font-size: 1.3rem;
             font-weight: 500;
             margin-bottom: 1rem;
-            letter-spacing: 0.02em;
         }
 
-        .differential-card p {
+        .why-card p {
             font-family: var(--font-sans);
             font-size: 0.9rem;
             font-weight: 300;
@@ -855,18 +973,69 @@
             opacity: 0.75;
         }
 
-        .differential-card.light p { color: var(--text-secondary); opacity: 1; }
+        .why-card.light p { color: var(--text-secondary); opacity: 1; }
+
+        /* ============================================
+           SEÇÃO: SOBRE / HISTÓRIA
+           ============================================ */
+        .about-section {
+            padding: var(--gap-section) 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content .section-text {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-highlight {
+            margin-top: 2rem;
+            padding: 1.5rem 2rem;
+            border-left: 3px solid var(--gold);
+            background: rgba(200, 164, 106, 0.04);
+            border-radius: 0 16px 16px 0;
+        }
+
+        .about-highlight p {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.6;
+        }
 
         /* ============================================
            SEÇÃO: CTA FINAL
            ============================================ */
         .cta-section {
             padding: 120px 0;
-            text-align: center;
+            text-align: left;
+            background: linear-gradient(135deg, rgba(200,164,106,0.04), rgba(215,178,123,0.02));
         }
 
         .cta-section .section-title { font-size: 4rem; }
         .cta-section .section-text { margin: 0 auto 2.5rem; }
+
+        .cta-urgency {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--gold);
+            border-radius: 9999px;
+        }
 
         .cta-actions {
             display: flex;
@@ -874,6 +1043,50 @@
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
+        }
+
+        .cta-contact-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(27,27,27,0.06);
+        }
+
+        .cta-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
+
+        .cta-contact-item i {
+            color: var(--gold);
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .cta-map {
+            margin-top: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-map iframe {
+            box-shadow: 0 10px 40px -15px rgba(0,0,0,0.08);
+            transition: box-shadow 0.4s ease;
+        }
+
+        .cta-map iframe:hover {
+            box-shadow: 0 20px 60px -20px rgba(0,0,0,0.12);
         }
 
         .back-link {
@@ -1032,30 +1245,16 @@
            RESPONSIVO
            ============================================ */
         @media (max-width: 1024px) {
-            .intro-grid { gap: 3rem; }
-            .methodology-grid { gap: 1.5rem; }
-            .methodology-card { padding: 2.5rem 2rem; }
+            .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            .forwhom-grid { grid-template-columns: repeat(2, 1fr); }
+            .how-grid { gap: 1.5rem; }
         }
 
         @media (max-width: 900px) {
-            .intro-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-            .intro-image { aspect-ratio: 16/10; }
-
-            .endurance-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-            .endurance-image {
-                aspect-ratio: 16/10;
-                order: -1;
-            }
-
             .numbers-grid { gap: 2rem; }
             .number-value { font-size: 5rem; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -1063,9 +1262,11 @@
             section { padding: 60px 0; }
             :root { --gap-section: 80px; }
 
-            .hero-title { font-size: 3rem; }
-            .hero-content { padding: 0 24px; height: 600px; }
+            .hero-title { font-size: 2.8rem; }
+            .hero-content { padding: 0 24px; }
             .hero-sub { font-size: 1rem; }
+            .hero-subline { font-size: 1.2rem; min-height: 1.8rem; }
+            .text-rotate { min-width: 80px; }
 
             .hero-actions {
                 flex-direction: column;
@@ -1075,12 +1276,21 @@
             .hero-actions .btn-primary,
             .hero-actions .btn-secondary { width: 100%; }
 
-            .section-title { font-size: 2.5rem; }
-            .cta-section .section-title { font-size: 2.5rem; }
+            .section-title { font-size: 2.2rem; }
+            .cta-section .section-title { font-size: 2.2rem; }
 
-            .methodology-grid,
-            .benefits-grid,
-            .differentials-grid { grid-template-columns: 1fr; }
+            .trust-grid { grid-template-columns: 1fr; }
+            .care-grid { grid-template-columns: 1fr; }
+            .forwhom-grid { grid-template-columns: 1fr; }
+
+            .how-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .how-step::after { display: none; }
+
+            .why-grid { grid-template-columns: 1fr; }
 
             .numbers-grid {
                 grid-template-columns: 1fr;
@@ -1096,6 +1306,12 @@
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            .cta-contact-row {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
             }
 
             .fade-in,
@@ -1115,441 +1331,278 @@
                 transition-delay: 0s;
             }
         }
+    
     </style>
 </head>
 <body>
 
-    <!-- ========== LOADER / SPLASH SCREEN ========== -->
-    <div class="page-loader hidden" id="pageLoader">
-        <img src="images/logobinotti.png" alt="Binotti Performance">
-        <div class="loader-bar">
-            <div class="loader-bar-inner" id="loaderBar"></div>
-        </div>
-    </div>
-
-    <!-- Overlay mobile -->
-    <div class="mobile-overlay" id="mobileOverlay"></div>
-
-
     <main>
         <!-- ========== HERO ========== -->
         <section class="hero" id="hero">
-            <video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="images/espacototal.png">
-                <!-- Versão otimizada para mobile (~2 MB) -->
-                <source src="videos/HERO-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
-                <!-- Versão full para desktop (~46 MB) -->
-                <source src="videos/HERO.mp4" type="video/mp4">
-            </video>
+            <img class="hero-bg" src="images/espacototal-hero.jpg" alt="Binotti Performance" fetchpriority="high">
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
-                <div class="hero-badge fade-in visible">INAUGURAÇÃO</div>
-                <div class="hero-logo fade-in visible delay-1">
+                <div class="hero-logo fade-in visible">
                     <img src="images/logobinotti.png" alt="Binotti Performance">
+                    <a href="https://www.instagram.com/binotti.performance" target="_blank" rel="noopener noreferrer" class="hero-instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
-                <h1 class="hero-title fade-in visible delay-2">
-                    Pilates com <em>metodologia individualizada</em>
+                <h1 class="hero-title fade-in visible delay-1">
+                    O Pilates que <em>cuida</em> de você<br>
+                    do primeiro ao último movimento<br>
+                    <span class="hero-subline">— seja para <span class="text-rotate" id="text-rotate"><span class="word active">dor lombar</span><span class="word">correr</span><span class="word">qualidade de vida</span><span class="word">prazer</span><span class="text-rotate-cursor"></span></span></span>
                 </h1>
-                <p class="hero-sub fade-in visible delay-3">
-                    Cada aula é pensada para o seu corpo e seus objetivos — seja mobilidade, estabilidade, consciência corporal ou performance esportiva.
+                <p class="hero-sub fade-in visible delay-2">
+                    Cada aula é pensada para o seu corpo — respeitando seus limites, fortalecendo suas capacidades e construindo resultados reais com segurança.
                 </p>
-                <div class="hero-actions fade-in visible delay-4">
-                    <a href="https://wa.me/message/GJFGR4HKOLGLP1" class="btn-primary" target="_blank">Agendar aula experimental</a>
-                    <a href="#metodologia" class="btn-secondary">Conheça nossa metodologia</a>
+                <div class="hero-actions fade-in visible delay-3">
+                    <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary" target="_blank">Agende sua aula experimental</a>
+                    <a href="#cuidado" class="btn-secondary">Como cuidamos de você</a>
                 </div>
             </div>
 
-            <div class="hero-scroll" onclick="document.getElementById('metodologia').scrollIntoView({behavior:'smooth'})">
+            <div class="hero-scroll" onclick="document.getElementById('cuidado').scrollIntoView({behavior:'smooth'})">
                 <span>Role</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
         </section>
 
-        <!-- ========== INTRODUÇÃO PILATES ========== -->
-        <section class="intro-section" id="sobre">
-            <div class="container">
-                <div class="intro-grid">
-                    <div class="intro-image fade-in-left">
-                        <img src="images/espacototal.png" alt="Espaço de Pilates Binotti Performance">
-                    </div>
-                    <div class="intro-content">
-                        <span class="section-tag fade-in">Pilates</span>
-                        <h2 class="section-title fade-in delay-1">
-                            Uma experiência que vai além<br>
-                            do <em>movimento</em>
-                        </h2>
-                        <p class="section-text fade-in delay-2">
-                            No Pilates da Binotti Performance, cada aula é pensada para ser uma experiência positiva e transformadora. Mais do que exercícios, oferecemos um atendimento que respeita o seu tempo, suas limitações e seus objetivos — seja você um atleta de alta performance ou alguém que busca qualidade de vida.
-                        </p>
-                        <p class="section-text fade-in delay-3">
-                            A diferença está na forma como utilizamos cada recurso disponível. Do Reformer ao Cadillac, passando pelo Ladder Barrel e acessórios, tudo é combinado de maneira inteligente e personalizada para criar sessões que realmente fazem sentido para o seu corpo. Não seguimos roteiros prontos — construímos cada aula com base no que você precisa naquele dia.
-                        </p>
-                        <div class="intro-highlight fade-in delay-4">
-                            <p>"O que nos move é ver cada pessoa descobrir o próprio potencial através do movimento consciente e bem orientado."</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== NÚMEROS ========== -->
-        <section class="numbers-section">
-            <div class="container">
-                <div class="numbers-grid">
-                    <div class="number-item fade-in">
-                        <span class="number-value">10</span>
-                        <span class="number-label">vagas com valor promocional</span>
-                    </div>
-                    <div class="number-item fade-in delay-1">
-                        <span class="number-value">100%</span>
-                        <span class="number-label">aulas personalizadas</span>
-                    </div>
-                    <div class="number-item fade-in delay-2">
-                        <span class="number-value">+3</span>
-                        <span class="number-label">anos de experiência</span>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== METODOLOGIA ========== -->
-        <section class="methodology-section" id="metodologia">
-            <div class="container">
-                <div class="methodology-header">
-                    <span class="section-tag fade-in">Nossa Metodologia</span>
-                    <h2 class="section-title centered fade-in delay-1">
-                        Três pilares para um<br>
-                        <em>corpo preparado</em>
-                    </h2>
-                    <p class="section-text centered fade-in delay-2">
-                        Diferente de abordagens genéricas, nossa metodologia se adapta a você. Cada aula é construída em cima de três pilares fundamentais, com ênfase no que você mais precisa no momento.
-                    </p>
-                </div>
-                <div class="methodology-grid">
-                    <div class="methodology-card fade-in-scale delay-1">
-                        <div class="methodology-number">01</div>
-                        <h3>Mobilidade</h3>
-                        <p>Trabalhamos amplitudes articulares completas, liberação de tensões e alongamento ativo. Ideal para quem busca mais liberdade de movimento, seja no esporte ou no dia a dia.</p>
-                    </div>
-                    <div class="methodology-card fade-in-scale delay-2">
-                        <div class="methodology-number">02</div>
-                        <h3>Estabilidade</h3>
-                        <p>Fortalecimento do core, equilíbrio muscular e controle postural. Essencial para prevenir lesões, melhorar a postura e criar uma base sólida para qualquer atividade física.</p>
-                    </div>
-                    <div class="methodology-card fade-in-scale delay-3">
-                        <div class="methodology-number">03</div>
-                        <h3>Consciência Corporal</h3>
-                        <p>Conexão mente-corpo através do controle respiratório, propriocepção e movimento consciente. O resultado é um corpo que se move com mais eficiência e menos esforço.</p>
-                    </div>
-                </div>
-                <div class="methodology-cta fade-in">
-                    <p><strong>Cada aula tem um enfoque diferente.</strong> Dependendo do seu momento, podemos priorizar mobilidade, estabilidade ou consciência corporal — ou trabalhar os três de forma integrada.</p>
-                    <a href="https://wa.me/message/GJFGR4HKOLGLP1" class="btn-primary" target="_blank">Agende uma aula experimental →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== PARA QUEM É O PILATES (TABS) ========== -->
-        <section class="tabs-section" id="para-quem">
+        <!-- ========== SEGURANCA ========== -->
+        <section class="trust-section" id="cuidado">
             <div class="container">
                 <div class="centered">
-                    <span class="section-tag fade-in">Para Você</span>
+                    <span class="section-tag fade-in">Sua segurança em primeiro lugar</span>
                     <h2 class="section-title centered fade-in delay-1">
-                        O Pilates que se adapta<br>
-                        ao seu <em>estilo de vida</em>
+                        Porque você merece um<br>
+                        movimento <em>consciente</em>
                     </h2>
                     <p class="section-text centered fade-in delay-2">
-                        Seja qual for o seu objetivo, o Pilates da Binotti Performance é pensado para se encaixar na sua rotina e nas suas necessidades.
+                        Não se trata apenas de fazer exercícios. Trata-se de confiar em quem está guiando cada movimento do seu corpo.
                     </p>
                 </div>
 
-                <!-- Navegação das abas -->
-                <div class="tabs-nav fade-in delay-2">
-                    <button class="tab-btn active" data-tab="endurance">Para Atletas de Endurance</button>
-                    <button class="tab-btn" data-tab="qualidade">Quem quer mais Qualidade de Vida</button>
-                    <button class="tab-btn" data-tab="pilates">Para quem AMA Pilates</button>
-                    <button class="tab-btn" data-tab="musculacao">Quem não Gosta de Musculação</button>
-                </div>
-
-                <!-- Painel 1: Atletas de Endurance -->
-                <div class="tab-panel active" id="tab-endurance">
-                    <div class="tab-grid">
-                        <div>
-                            <ul class="tab-benefits">
-                                <li>
-                                    <i class="fas fa-bolt"></i>
-                                    <div>
-                                        <strong>Core fortalecido</strong>
-                                        <span>Estabilidade central que melhora a transferência de potência e previne lesões na coluna</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fas fa-lungs"></i>
-                                    <div>
-                                        <strong>Respiração e eficiência</strong>
-                                        <span>Técnicas de respiração que aumentam a capacidade pulmonar e o controle do diafragma</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fas fa-balance-scale"></i>
-                                    <div>
-                                        <strong>Equilíbrio muscular</strong>
-                                        <span>Correção de descompensações causadas pelos movimentos repetitivos de cada esporte</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fas fa-shield-alt"></i>
-                                    <div>
-                                        <strong>Prevenção de lesões</strong>
-                                        <span>Fortalecimento de músculos estabilizadores e aumento da mobilidade articular</span>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div style="text-align:center; margin-top:1.5rem;">
-                                <a href="https://wa.me/message/GJFGR4HKOLGLP1" class="btn-primary" target="_blank">Falar no WhatsApp →</a>
-                            </div>
-                        </div>
-                        <div class="tab-image">
-                            <img src="images/espaco2.JPEG" alt="Espaço de Pilates">
-                        </div>
+                <div class="trust-grid">
+                    <div class="trust-card fade-in-scale delay-1">
+                        <div class="trust-icon"><i class="fas fa-user-graduate"></i></div>
+                        <h3>Supervisão de Fisioterapeuta</h3>
+                        <p>Formação em Fisioterapia que permite ir além do movimento — identificamos a causa do problema e tratamos com precisão, não apenas aliviamos sintomas.</p>
                     </div>
-                </div>
 
-                <!-- Painel 2: Qualidade de Vida -->
-                <div class="tab-panel" id="tab-qualidade">
-                    <div class="tab-grid">
-                        <div>
-                            <ul class="tab-benefits">
-                                <li>
-                                    <i class="fas fa-spa"></i>
-                                    <div>
-                                        <strong>Bem-estar diário</strong>
-                                        <span>Movimentos que aliviam tensões acumuladas, melhoram a postura e trazem mais disposição para o dia a dia</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fas fa-brain"></i>
-                                    <div>
-                                        <strong>Conexão mente-corpo</strong>
-                                        <span>O Pilates trabalha a consciência corporal, reduzindo o estresse e promovendo mais equilíbrio emocional</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fas fa-bed"></i>
-                                    <div>
-                                        <strong>Sono reparador</strong>
-                                        <span>A prática regular melhora a qualidade do sono e ajuda na recuperação física e mental</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fas fa-heart"></i>
-                                    <div>
-                                        <strong>Saúde integral</strong>
-                                        <span>Benefícios que vão do fortalecimento muscular à melhora da circulação e da respiração</span>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div style="text-align:center; margin-top:1.5rem;">
-                                <a href="https://wa.me/message/GJFGR4HKOLGLP1" class="btn-primary" target="_blank">Quero mais qualidade de vida →</a>
-                            </div>
-                        </div>
-                        <div class="tab-image">
-                            <img src="images/espaco2.JPEG" alt="Espaço de Pilates">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Painel 3: Modalidade Pilates -->
-                <div class="tab-panel" id="tab-pilates">
-                    <div class="tab-grid">
-                        <div>
-                            <ul class="tab-benefits">
-                                <li>
-                                    <i class="fas fa-dumbbell"></i>
-                                    <div>
-                                        <strong>Método completo</strong>
-                                        <span>O Pilates é uma modalidade completa que trabalha força, flexibilidade, equilíbrio e coordenação em cada sessão</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fas fa-cogs"></i>
-                                    <div>
-                                        <strong>Equipamentos exclusivos</strong>
-                                        <span>Reformer, Cadillac, Ladder Barrel e acessórios — cada aparelho oferece possibilidades únicas de movimento</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fas fa-chart-line"></i>
-                                    <div>
-                                        <strong>Evolução constante</strong>
-                                        <span>Com aulas individuais e progressão personalizada, você evolui no seu ritmo, sem comparações</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fas fa-users"></i>
-                                    <div>
-                                        <strong>Comunidade acolhedora</strong>
-                                        <span>Um ambiente onde cada aluno é tratado pelo nome e as conquistas de cada um são celebradas</span>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div style="text-align:center; margin-top:1.5rem;">
-                                <a href="https://wa.me/message/GJFGR4HKOLGLP1" class="btn-primary" target="_blank">Praticar Pilates →</a>
-                            </div>
-                        </div>
-                        <div class="tab-image">
-                            <img src="images/espaco2.JPEG" alt="Espaço de Pilates">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Painel 4: Não Gosta de Musculação -->
-                <div class="tab-panel" id="tab-musculacao">
-                    <div class="tab-grid">
-                        <div>
-                            <ul class="tab-benefits">
-                                <li>
-                                    <i class="fas fa-feather-alt"></i>
-                                    <div>
-                                        <strong>Movimento fluido</strong>
-                                        <span>Diferente da musculação, o Pilates trabalha o corpo com movimentos contínuos e integrados, sem repetições mecânicas</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fas fa-smile"></i>
-                                    <div>
-                                        <strong>Prazer em se exercitar</strong>
-                                        <span>Cada aula é uma experiência diferente — você se exercita sem sentir que está "malhando"</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fas fa-hand-peace"></i>
-                                    <div>
-                                        <strong>Baixo impacto</strong>
-                                        <span>Ideal para quem busca fortalecimento sem sobrecarga nas articulações, com respeito aos limites do corpo</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fas fa-star"></i>
-                                    <div>
-                                        <strong>Resultados reais</strong>
-                                        <span>Ganho de força, tônus muscular, flexibilidade e postura — tudo sem precisar pegar em pesos</span>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div style="text-align:center; margin-top:1.5rem;">
-                                <a href="https://wa.me/message/GJFGR4HKOLGLP1" class="btn-primary" target="_blank">Experimente o Pilates →</a>
-                            </div>
-                        </div>
-                        <div class="tab-image">
-                            <img src="images/espaco2.JPEG" alt="Espaço de Pilates">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ========== BENEFÍCIOS GERAIS ========== -->
-        <section class="benefits-section">
-            <div class="container">
-                <div class="centered">
-                    <span class="section-tag fade-in">Para Todos</span>
-                    <h2 class="section-title centered fade-in delay-1">
-                        Benefícios que vão além<br>
-                        do <em>esporte</em>
-                    </h2>
-                    <p class="section-text centered fade-in delay-2">
-                        O Pilates é para todos — independentemente da idade, condicionamento físico ou objetivo. Cada aula é adaptada às necessidades individuais.
-                    </p>
-                </div>
-                <div class="benefits-grid">
-                    <div class="benefit-card fade-in-scale delay-1">
-                        <div class="benefit-icon"><i class="fas fa-arrow-up"></i></div>
-                        <h3>Postura Corrigida</h3>
-                        <p>Fortalecimento do core e alinhamento da coluna que melhoram sua postura no dia a dia e previnem dores crônicas.</p>
-                    </div>
-                    <div class="benefit-card fade-in-scale delay-2">
-                        <div class="benefit-icon"><i class="fas fa-heart"></i></div>
-                        <h3>Bem-Estar Integral</h3>
-                        <p>Conexão entre corpo e mente que reduz o estresse, melhora a qualidade do sono e aumenta a disposição.</p>
-                    </div>
-                    <div class="benefit-card fade-in-scale delay-3">
-                        <div class="benefit-icon"><i class="fas fa-user-md"></i></div>
-                        <h3>Reabilitação</h3>
-                        <p>Exercícios de baixo impacto supervisionados que auxiliam na recuperação de lesões e cirurgias com segurança.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== DIFERENCIAIS ========== -->
-        <section class="differentials-section">
-            <div class="container">
-                <div class="centered">
-                    <span class="section-tag fade-in">Diferenciais</span>
-                    <h2 class="section-title centered fade-in delay-1">
-                        Por que escolher<br>
-                        nosso <em>espaço</em>
-                    </h2>
-                </div>
-                <div class="differentials-grid">
-                    <div class="differential-card dark fade-in-scale delay-1">
-                        <div class="differential-icon"><i class="fas fa-user-check"></i></div>
+                    <div class="trust-card fade-in-scale delay-2">
+                        <div class="trust-icon"><i class="fas fa-heart"></i></div>
                         <h3>Atendimento Individualizado</h3>
-                        <p>Aulas com supervisão constante, exercícios adaptados ao seu corpo e evolução acompanhada de perto.</p>
+                        <p>Cada aula é desenhada exclusivamente para você. Nada de turmas lotadas ou exercícios genéricos — seu corpo é único e merece atenção individual.</p>
                     </div>
-                    <div class="differential-card gold fade-in-scale delay-2">
-                        <div class="differential-icon"><i class="fas fa-home"></i></div>
-                        <h3>Ambiente Exclusivo</h3>
-                        <p>Um espaço planejado para o Pilates, com equipamentos de qualidade e atmosfera acolhedora.</p>
+
+                    <div class="trust-card fade-in-scale delay-3">
+                        <div class="trust-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Movimento Seguro e Consciente</h3>
+                        <p>Respeitamos seus limites e evoluímos no seu ritmo. Cada exercício é adaptado para garantir segurança máxima sem abrir mão dos resultados.</p>
                     </div>
-                    <div class="differential-card light fade-in-scale delay-3">
-                        <div class="differential-icon"><i class="fas fa-project-diagram"></i></div>
-                        <h3>Metodologia Integrada</h3>
-                        <p>Se você já treina conosco, o Pilates se soma ao seu programa de fortalecimento para resultados ainda melhores.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== COMO CUIDAMOS DE VOCE ========== -->
+        <section class="care-section" id="processo">
+            <div class="container">
+                <div class="centered">
+                    <span class="section-tag fade-in">Como cuidamos de você</span>
+                    <h2 class="section-title centered fade-in delay-1">
+                        Um processo feito<br>
+                        <em>sob medida</em> para você
+                    </h2>
+                    <p class="section-text centered fade-in delay-2">
+                        Da primeira conversa à evolução dos movimentos, cada etapa é pensada para que você se sinta acolhido, seguro e motivado.
+                    </p>
+                </div>
+
+                <div class="care-grid">
+                    <div class="care-step fade-in delay-1">
+                        <div class="care-number">1</div>
+                        <div>
+                            <h3>Avaliação Individual</h3>
+                            <p>Uma conversa cuidadosa para entender seu histórico, suas dores, seus objetivos e o que seu corpo precisa. Nada de achismos — tudo parte de um diagnóstico real.</p>
+                        </div>
+                    </div>
+
+                    <div class="care-step fade-in delay-2">
+                        <div class="care-number">2</div>
+                        <div>
+                            <h3>Plano Personalizado</h3>
+                            <p>Com base na sua avaliação, desenhamos uma sequência de exercícios feita exclusivamente para você — respeitando seus limites e desafiando seu potencial.</p>
+                        </div>
+                    </div>
+
+                    <div class="care-step fade-in delay-3">
+                        <div class="care-number">3</div>
+                        <div>
+                            <h3>Acompanhamento Constante</h3>
+                            <p>Cada aula é supervisionada de perto. Ajustamos os movimentos conforme sua evolução, garantindo que você progrida com segurança e confiança.</p>
+                        </div>
+                    </div>
+
+                    <div class="care-step fade-in delay-4">
+                        <div class="care-number">4</div>
+                        <div>
+                            <h3>Evolução que Você Sente</h3>
+                            <p>Menos dor, mais disposição, melhor postura, mais qualidade de vida. Resultados reais que você percebe no dia a dia — não apenas no estúdio.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="care-cta fade-in delay-4">
+                    <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary" target="_blank">Quero começar minha jornada</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== DEPOIMENTOS ========== -->
+        <section class="testimonials-section" id="depoimentos">
+            <div class="container">
+                <div class="centered">
+                    <span class="section-tag fade-in">Depoimentos</span>
+                    <h2 class="section-title centered fade-in delay-1">
+                        Quem confiou, <em>comprova</em>
+                    </h2>
+                    <p class="section-text centered fade-in delay-2">
+                        Histórias reais de quem encontrou no Pilates da Binotti um caminho seguro para transformar o corpo e a relação com o movimento.
+                    </p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card fade-in-scale delay-1">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">“Cheguei com dor lombar crônica que me acompanhava há anos. Em três meses de Pilates, a dor simplesmente desapareceu. Hoje consigo brincar com meus filhos sem medo.”</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">AM</div>
+                            <div>
+                                <div class="testimonial-name">Ana M.</div>
+                                <div class="testimonial-result">Eliminou a dor lombar</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card fade-in-scale delay-2">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">“Sempre tive receio de fazer exercícios por causa de uma lesão no joelho. A supervisão e a paciência da Binotti me deram confiança. Hoje me movo sem dor e sem medo.”</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">RL</div>
+                            <div>
+                                <div class="testimonial-name">Rafael L.</div>
+                                <div class="testimonial-result">Recuperou a confiança no movimento</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card fade-in-scale delay-3">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">“Nunca gostei de academia, mas sabia que precisava me cuidar. O Pilates foi a primeira atividade que realmente fez sentido para mim. Hoje é meu momento favorito da semana.”</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">CS</div>
+                            <div>
+                                <div class="testimonial-name">Carla S.</div>
+                                <div class="testimonial-result">Qualidade de vida</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SOBRE / HISTORIA ========== -->
+        <section class="about-section" id="sobre">
+            <div class="container">
+                <div class="about-grid">
+                
+                    <div class="about-content fade-in-right">
+                        <span class="section-tag">Nossa História</span>
+                        <h2 class="section-title">
+                            Mais que Pilates,<br>
+                            um <em>compromisso</em> com você
+                        </h2>
+                        <p class="section-text">
+                            Na Binotti Performance, acreditamos que movimento de qualidade transforma vidas. Por isso, cada aula é guiada por profissional com formação em Fisioterapia — unindo o conhecimento clínico à prática do Pilates para oferecer um atendimento que realmente faz diferença.
+                        </p>
+                        <p class="section-text">
+                            Nosso espaço foi pensado para que você se sinta acolhido desde o primeiro momento. Aqui, você não é mais um número — você é único, e sua aula também.
+                        </p>
+                        <div class="about-highlight">
+                            <p>“O movimento certo, na hora certa, do jeito certo — isso é o que transforma dor em bem-estar.”</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ========== CTA FINAL ========== -->
-        <section class="cta-section">
+        <section class="cta-section" id="contato">
             <div class="container">
-                <span class="section-tag fade-in">Comece hoje</span>
-                <h2 class="section-title centered fade-in delay-1">
-                    Agende sua aula experimental<br>
-                    de <em>Pilates</em>!
+                <h2 class="section-title centered fade-in">
+                    Pronto para cuidar<br>
+                    de você com <em>segurança</em>?
                 </h2>
-                <p class="section-text centered fade-in delay-2">
-                    Venha conhecer nosso espaço e descubra como o Pilates pode transformar sua performance e qualidade de vida.
+                <p class="section-text centered fade-in delay-1">
+                    Agende sua aula experimental gratuita e descubra como o Pilates pode transformar seu corpo — respeitando seus limites e construindo resultados reais.
                 </p>
-                <div class="cta-actions fade-in delay-3">
-                    <a href="https://wa.me/message/GJFGR4HKOLGLP1" class="btn-primary" target="_blank">Agendar Aula Experimental →</a>
-                    <a href="index.html" class="btn-outline">Voltar ao site principal</a>
+                <div class="cta-actions fade-in delay-2">
+                    <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Agendar aula experimental
+                    </a>
+                    <a href="https://www.instagram.com/binotti.performance" class="btn-outline" target="_blank">
+                        <i class="fab fa-instagram"></i> Ver no Instagram
+                    </a>
                 </div>
+
+                <div class="cta-contact-row fade-in delay-3">
+                    <span class="cta-contact-item">
+                        <i class="fab fa-whatsapp"></i> (48) 6136-6300
+                    </span>
+                    <span class="cta-contact-item">
+                        <i class="fas fa-map-marker-alt"></i> Av. Ângelo Crema, 372 - Santa Mônica, Florianópolis
+                    </span>
+                    <span class="cta-contact-item">
+                        <i class="fas fa-clock"></i> Seg a Sex: 6h às 20h
+                    </span>
+                </div>
+
+                <div class="cta-map fade-in delay-4">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.7!2d-48.512!3d-27.612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952739b8e5b5b5b5%3A0x5b5b5b5b5b5b5b5b!2sAv.%20%C3%82ngelo%20Crema%2C%20372%20-%20Santa%20M%C3%B4nica%2C%20Florian%C3%B3polis%20-%20SC!5e0!3m2!1spt-BR!2sbr!4v1"
+                        width="100%" 
+                        height="320" 
+                        style="border:0; border-radius: 20px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Localização Binotti Performance">
+                    </iframe>
+                </div>
+
+                <a href="index.html" class="back-link fade-in delay-5">
+                    <i class="fas fa-arrow-left"></i> Voltar para página inicial
+                </a>
             </div>
         </section>
     </main>
 
     <!-- ========== FOOTER ========== -->
-    <footer class="footer" id="contato">
+    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <img src="images/logobinotti.png" alt="Binotti Performance">
                     <p>Treinamento funcional, fisioterapia e pilates que se adapta ao seu corpo — seja para o esporte, para o dia a dia ou para simplesmente se sentir melhor.</p>
-
                 </div>
                 <div>
                     <h4>Navegação</h4>
                     <ul class="footer-links">
                         <li><a href="index.html">Início</a></li>
-                        <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#metodologia">Metodologia</a></li>
+                        <li><a href="#cuidado">Segurança</a></li>
+                        <li><a href="#processo">Como cuidamos</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
                         <li><a href="#contato">Contato</a></li>
                     </ul>
                 </div>
@@ -1559,7 +1612,7 @@
                         <a href="https://www.instagram.com/binotti.performance" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/message/GJFGR4HKOLGLP1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <a href="https://wa.me/message/57G7B7LRYFAOM1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                         <a href="#" aria-label="Facebook">
@@ -1569,142 +1622,75 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>&copy; 2025 Binotti Performance — Todos os direitos reservados.</span>
+                <span>© 2025 Binotti Performance — Todos os direitos reservados.</span>
                 <span><i class="fas fa-map-marker-alt"></i> Av. Ângelo Crema, 372 - Santa Mônica, Florianópolis/SC</span>
             </div>
         </div>
     </footer>
 
     <script>
-        // ========== PAGE LOADER ==========
-        (function() {
-            var loader = document.getElementById('pageLoader');
-            var loaderBar = document.getElementById('loaderBar');
-            var video = document.querySelector('.hero-bg');
-            var ready = false;
-            var videoReady = false;
-            var loaderHidden = false;
-            var clicksEnabled = false;
+        // Text Rotate Effect
+        document.addEventListener('DOMContentLoaded', function() {
+            var rotateEl = document.getElementById('text-rotate');
+            if (rotateEl) {
+                var words = rotateEl.querySelectorAll('.word');
+                var current = 0;
+                var total = words.length;
 
-            function updateLoader() {
-                if (loaderBar) {
-                    var pct = 0;
-                    if (videoReady) pct += 60;
-                    if (ready) pct += 40;
-                    loaderBar.style.width = pct + '%';
-                }
-            }
+                function rotateWord() {
+                    var active = words[current];
+                    active.classList.remove('active');
+                    active.classList.add('exit');
 
-            // Permite cliques através do loader assim que o DOM estiver pronto
-            function enableClicks() {
-                if (clicksEnabled) return;
-                clicksEnabled = true;
-                if (loader) {
-                    loader.style.pointerEvents = 'none';
-                }
-            }
+                    current = (current + 1) % total;
 
-            function hideLoader() {
-                if (loaderHidden) return;
-                if (ready && videoReady && loader) {
-                    loaderHidden = true;
-                    // Garante que cliques já estão liberados
-                    enableClicks();
+                    var next = words[current];
                     setTimeout(function() {
-                        loader.classList.add('hidden');
-                    }, 400);
+                        active.classList.remove('exit');
+                        next.classList.add('active');
+                    }, 500);
                 }
+
+                setInterval(rotateWord, 2800);
             }
-
-            // Marca quando o DOM está pronto
-            document.addEventListener('DOMContentLoaded', function() {
-                ready = true;
-                // Libera cliques imediatamente quando o DOM carrega
-                enableClicks();
-                updateLoader();
-                hideLoader();
-            });
-
-            // Tenta iniciar o vídeo explicitamente (essencial para mobile)
-            function attemptPlay() {
-                if (video) {
-                    var playPromise = video.play();
-                    if (playPromise !== undefined) {
-                        playPromise.then(function() {
-                            // Vídeo começou a tocar
-                            videoReady = true;
-                            updateLoader();
-                            hideLoader();
-                        }).catch(function() {
-                            // Mobile pode bloquear, mas não travamos o loader por causa disso
-                            videoReady = true;
-                            updateLoader();
-                            hideLoader();
-                        });
-                    }
-                }
-            }
-
-            // Marca quando o vídeo está pronto para reprodução
-            if (video) {
-                video.addEventListener('canplaythrough', function() {
-                    videoReady = true;
-                    updateLoader();
-                    hideLoader();
-                    attemptPlay();
-                });
-
-                video.addEventListener('loadeddata', function() {
-                    // Fallback para mobile: loadeddata é mais confiável que canplaythrough
-                    setTimeout(function() {
-                        videoReady = true;
-                        updateLoader();
-                        hideLoader();
-                        attemptPlay();
-                    }, 1000);
-                });
-
-                // Se o vídeo já estiver carregado
-                if (video.readyState >= 3) {
-                    videoReady = true;
-                    updateLoader();
-                    hideLoader();
-                    attemptPlay();
-                } else {
-                    // Tenta play imediatamente (pode funcionar em alguns dispositivos)
-                    attemptPlay();
-                }
-            } else {
-                videoReady = true;
-                updateLoader();
-                hideLoader();
-            }
-
-            // Fallback de segurança: esconde o loader após 4s no máximo
-            setTimeout(function() {
-                videoReady = true;
-                ready = true;
-                enableClicks();
-                updateLoader();
-                hideLoader();
-            }, 4000);
-
-            // Se ambos já estiverem prontos, esconde imediatamente
-            if (ready && videoReady) {
-                enableClicks();
-                hideLoader();
-            }
-        })();
-
+        });
 
         document.addEventListener('DOMContentLoaded', function() {
-            // ========== WHATSAPP LINK ==========
-            const WHATSAPP_LINK = "https://wa.me/message/GJFGR4HKOLGLP1";
+            const WHATSAPP_LINK = "https://wa.me/message/57G7B7LRYFAOM1";
 
+            // Função para enviar evento para a API de Conversões do Meta
+            function sendConversionAPI(eventName, userData) {
+                var payload = {
+                    eventName: eventName,
+                    userData: userData || {},
+                    customData: {
+                        source: 'pilates_page',
+                        currency: 'BRL'
+                    }
+                };
 
-            // ========== SCROLL ANIMATIONS ==========
+                // Obter cookies fbc e fbp se existirem
+                function getCookie(name) {
+                    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                    return match ? match[2] : null;
+                }
+                var fbp = getCookie('_fbp');
+                var fbc = getCookie('_fbc');
+                if (fbp) payload.userData.fbp = fbp;
+                if (fbc) payload.userData.fbc = fbc;
+
+                // Enviar para a API (fire-and-forget, não bloqueia)
+                fetch('/api/conversion', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).catch(function(err) {
+                    console.log('CAPI send (non-blocking):', err);
+                });
+            }
+
             function initScrollAnimations() {
-                var elements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-scale');
+                var elements = document.querySelectorAll('.fade-in:not(.visible), .fade-in-left:not(.visible), .fade-in-right:not(.visible), .fade-in-scale:not(.visible)');
 
                 if (elements.length === 0) return;
 
@@ -1726,27 +1712,6 @@
 
             initScrollAnimations();
 
-            // ========== TABS (PARA QUEM É O PILATES) ==========
-            var tabBtns = document.querySelectorAll('.tab-btn');
-            var tabPanels = document.querySelectorAll('.tab-panel');
-
-            if (tabBtns.length > 0) {
-                tabBtns.forEach(function(btn) {
-                    btn.addEventListener('click', function() {
-                        var tabId = btn.getAttribute('data-tab');
-
-                        tabBtns.forEach(function(b) { b.classList.remove('active'); });
-                        tabPanels.forEach(function(p) { p.classList.remove('active'); });
-
-                        btn.classList.add('active');
-                        var panel = document.getElementById('tab-' + tabId);
-                        if (panel) panel.classList.add('active');
-                    });
-                });
-            }
-
-            // ========== WHATSAPP TRACKING ==========
-
             document.querySelectorAll('.btn-primary, .btn-secondary, .btn-outline').forEach(function(btn) {
                 if (btn.classList.contains('btn-outline') && btn.getAttribute('href') === 'index.html') return;
 
@@ -1754,7 +1719,14 @@
                     var href = btn.getAttribute('href');
                     if (href && href.startsWith('https://wa.me')) {
                         e.preventDefault();
+                        // Pixel (navegador)
                         fbq('trackCustom', 'LeadPilates');
+                        // API de Conversões (servidor) - mesmo nome do evento customizado do Pixel
+                        sendConversionAPI('LeadPilates', {
+                            clientIp: '',
+                            clientUserAgent: navigator.userAgent
+                        });
+                        // Google Ads
                         gtag('event', 'whatsapp_pilates', {
                             'event_callback': function() {
                                 window.location.href = href;
@@ -1767,14 +1739,6 @@
         });
     </script>
 
-
-
-    <!-- Google tag (gtag.js) event -->
-    <script>
-        gtag('event', 'page_view_pilates', {});
-    </script>
-
-    <!-- Google tag (gtag.js) event - delayed navigation helper -->
     <script>
         function gtagSendEvent(url) {
             var callback = function () {
