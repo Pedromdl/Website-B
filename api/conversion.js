@@ -27,8 +27,17 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: 'eventName é obrigatório' });
         }
 
+        // Capturar IP real do cliente (Vercel envia via x-forwarded-for)
+        const clientIp = req.headers['x-forwarded-for']?.split(',')[0]?.trim() 
+                      || req.headers['x-real-ip'] 
+                      || req.socket?.remoteAddress 
+                      || '';
+
         // Dados do usuário (hash SHA256)
-        const defaultUserData = {};
+        const defaultUserData = {
+            client_ip_address: clientIp,
+            client_user_agent: req.headers['user-agent'] || ''
+        };
         if (userData) {
             if (userData.email) {
                 const crypto = await import('crypto');
@@ -39,9 +48,6 @@ export default async function handler(req, res) {
                 // Remove caracteres não numéricos
                 const phone = userData.phone.replace(/\D/g, '');
                 defaultUserData.ph = [crypto.createHash('sha256').update(phone).digest('hex')];
-            }
-            if (userData.clientIp) {
-                defaultUserData.client_ip_address = userData.clientIp;
             }
             if (userData.clientUserAgent) {
                 defaultUserData.client_user_agent = userData.clientUserAgent;
