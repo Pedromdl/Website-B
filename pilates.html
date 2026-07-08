@@ -1679,14 +1679,19 @@
                 if (fbp) payload.userData.fbp = fbp;
                 if (fbc) payload.userData.fbc = fbc;
 
-                // Enviar para a API (fire-and-forget, não bloqueia)
-                fetch('/api/conversion', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                }).catch(function(err) {
-                    console.log('CAPI send (non-blocking):', err);
-                });
+                // Usar sendBeacon para garantir o envio mesmo durante navegação
+                var blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+                var sent = navigator.sendBeacon('/api/conversion', blob);
+                if (!sent) {
+                    // Fallback: fetch comum
+                    fetch('/api/conversion', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    }).catch(function(err) {
+                        console.log('CAPI send (non-blocking):', err);
+                    });
+                }
             }
 
             function initScrollAnimations() {
