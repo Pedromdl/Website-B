@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head><title>Teste CAPI</title></head>
+<body>
+    <h1>Teste da API de Conversões</h1>
+    <button onclick="testarCAPI()">Testar CAPI</button>
+    <pre id="resultado"></pre>
+
+    <script>
+        function testarCAPI() {
+            const resultado = document.getElementById('resultado');
+            resultado.textContent = 'Enviando...';
+
+            const payload = {
+                eventName: 'TestCAPI',
+                userData: {
+                    clientIp: '',
+                    clientUserAgent: navigator.userAgent
+                },
+                customData: {
+                    source: 'teste_manual',
+                    currency: 'BRL'
+                }
+            };
+
+            // Tenta com caminho relativo
+            fetch('/api/conversion', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(r => r.json())
+            .then(data => {
+                resultado.textContent = 'Relativo: ' + JSON.stringify(data, null, 2);
+            })
+            .catch(err => {
+                resultado.textContent = 'Erro relativo: ' + err.message;
+            });
+
+            // Tenta com URL absoluta
+            fetch('https://www.binottiperformance.com/api/conversion', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(r => r.json())
+            .then(data => {
+                resultado.textContent += '\n\nAbsoluto: ' + JSON.stringify(data, null, 2);
+            })
+            .catch(err => {
+                resultado.textContent += '\n\nErro absoluto: ' + err.message;
+            });
+        }
+    </script>
+</body>
+</html>
