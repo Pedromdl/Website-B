@@ -1680,6 +1680,16 @@
                 if (fbp) payload.userData.fbp = fbp;
                 if (fbc) payload.userData.fbc = fbc;
 
+                // Fallback: extrair fbclid da URL e converter para fbc
+                if (!fbc) {
+                    var urlParams = new URLSearchParams(window.location.search);
+                    var fbclid = urlParams.get('fbclid');
+                    if (fbclid) {
+                        // Formato fbc: fb.1.<timestamp>.<fbclid>
+                        payload.userData.fbc = 'fb.1.' + Math.floor(Date.now() / 1000) + '.' + fbclid;
+                    }
+                }
+
                 // Usar sendBeacon para garantir o envio mesmo durante navegação
                 var blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
                 var sent = navigator.sendBeacon('/api/conversion', blob);
