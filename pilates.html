@@ -1659,9 +1659,10 @@
             const WHATSAPP_LINK = "https://wa.me/message/57G7B7LRYFAOM1";
 
             // Função para enviar evento para a API de Conversões do Meta
-            function sendConversionAPI(eventName, userData) {
+            function sendConversionAPI(eventName, userData, eventId) {
                 var payload = {
                     eventName: eventName,
+                    eventId: eventId,
                     userData: userData || {},
                     customData: {
                         source: 'pilates_page',
@@ -1724,12 +1725,14 @@
                     var href = btn.getAttribute('href');
                     if (href && href.startsWith('https://wa.me')) {
                         e.preventDefault();
-                        // Pixel (navegador)
-                        fbq('trackCustom', 'LeadPilates');
-                        // API de Conversões (servidor) - mesmo nome do evento customizado do Pixel
+                        // Gerar eventID único para deduplicação Pixel + CAPI
+                        var eventId = 'leadpilates_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                        // Pixel (navegador) com eventID
+                        fbq('trackCustom', 'LeadPilates', { eventID: eventId });
+                        // API de Conversões (servidor) com o MESMO eventID
                         sendConversionAPI('LeadPilates', {
                             clientUserAgent: navigator.userAgent
-                        });
+                        }, eventId);
                         // Google Ads
                         gtag('event', 'whatsapp_pilates', {
                             'event_callback': function() {

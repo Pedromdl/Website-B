@@ -1985,9 +1985,10 @@
         const WHATSAPP_LINK = "https://wa.me/message/57G7B7LRYFAOM1";
 
         // Função para enviar evento para a API de Conversões do Meta
-        function sendConversionAPI(eventName, userData) {
+        function sendConversionAPI(eventName, userData, eventId) {
             var payload = {
                 eventName: eventName,
+                eventId: eventId,
                 userData: userData || {},
                 customData: {
                     source: 'index_page',
@@ -2037,12 +2038,14 @@
                 // Adiciona o clique que dispara o evento gtag antes de navegar
                 button.addEventListener('click', function (e) {
                     e.preventDefault();
-                    fbq('track', 'Lead');
+                    // Gerar eventID único para deduplicação Pixel + CAPI
+                    var eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                    fbq('track', 'Lead', { eventID: eventId });
                     gtagSendEvent(WHATSAPP_LINK);
-                    // API de Conversões (servidor)
+                    // API de Conversões (servidor) com o MESMO eventID
                     sendConversionAPI('Lead', {
                         clientUserAgent: navigator.userAgent
-                    });
+                    }, eventId);
                 });
             });
 
@@ -2053,12 +2056,14 @@
                 desktopCta.removeAttribute('target');
                 desktopCta.addEventListener('click', function (e) {
                     e.preventDefault();
-                    fbq('track', 'Lead');
+                    // Gerar eventID único para deduplicação Pixel + CAPI
+                    var eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                    fbq('track', 'Lead', { eventID: eventId });
                     gtagSendEvent(WHATSAPP_LINK);
-                    // API de Conversões (servidor)
+                    // API de Conversões (servidor) com o MESMO eventID
                     sendConversionAPI('Lead', {
                         clientUserAgent: navigator.userAgent
-                    });
+                    }, eventId);
                 });
             }
 
