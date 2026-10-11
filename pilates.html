@@ -13,7 +13,89 @@
         gtag('config', 'AW-17546606558');
     </script>
 
-    <title>Pilates | Binotti Performance — Florianópolis</title>
+    <title>Studio de Pilates no Santa Mônica Florianópolis | Binotti Performance</title>
+    <meta name="description" content="Procurando studio de pilates em Florianópolis? Aulas personalizadas com fisioterapeuta no Santa Mônica. Máximo de 3 alunos por turma. Agende sua aula experimental!">
+
+    <link rel="canonical" href="https://www.binottiperformance.com/pilates">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Binotti Performance">
+    <meta property="og:title" content="Studio de Pilates no Santa Mônica Florianópolis | Binotti Performance">
+    <meta property="og:description" content="Studio de pilates em Florianópolis com aulas personalizadas e fisioterapeuta no Santa Mônica. Máximo de 3 alunos por turma. Agende sua aula experimental!">
+    <meta property="og:url" content="https://www.binottiperformance.com/pilates">
+    <meta property="og:image" content="https://www.binottiperformance.com/images/logobinotti.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Studio de Pilates no Santa Mônica Florianópolis | Binotti Performance">
+    <meta name="twitter:description" content="Studio de pilates em Florianópolis com fisioterapeuta no Santa Mônica. Máximo de 3 alunos por turma. Agende sua aula experimental!">
+    <meta name="twitter:image" content="https://www.binottiperformance.com/images/logobinotti.png">
+
+    <meta name="theme-color" content="#191919">
+
+    <!-- JSON-LD: Negócio local (Pilates supervisionado por Fisioterapeuta) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "Binotti Performance - Pilates e Fisioterapia",
+        "description": "Pilates supervisionado por fisioterapeuta em Florianópolis. Aulas com no máximo 3 alunos para reabilitação, alívio de dores, postura e qualidade de vida.",
+        "url": "https://www.binottiperformance.com",
+        "telephone": "+554861366300",
+        "image": "https://www.binottiperformance.com/images/logobinotti.png",
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Avenida Ângelo Crema, 372",
+            "addressLocality": "Florianópolis",
+            "addressRegion": "SC",
+            "addressCountry": "BR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -27.595295,
+            "longitude": -48.507303
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "06:00",
+                "closes": "20:00"
+            }
+        ],
+        "areaServed": ["Santa Mônica", "Trindade", "Córrego Grande", "Itacorubi", "Florianópolis"],
+        "sameAs": ["https://www.instagram.com/binotti.performance"],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "reviewCount": "3"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "author": { "@type": "Person", "name": "Ana M." },
+                "reviewBody": "Cheguei com dor lombar crônica que me acompanhava há anos. Em três meses de Pilates, a dor simplesmente desapareceu."
+            },
+            {
+                "@type": "Review",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "author": { "@type": "Person", "name": "Rafael L." },
+                "reviewBody": "Sempre tive receio de fazer exercícios por causa de uma lesão no joelho. A supervisão e a paciência da Binotti me deram confiança."
+            },
+            {
+                "@type": "Review",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "author": { "@type": "Person", "name": "Carla S." },
+                "reviewBody": "Nunca gostei de academia, mas sabia que precisava me cuidar. O Pilates foi a primeira atividade que realmente fez sentido para mim."
+            }
+        ]
+    }
+    </script>
 
     <!-- Meta Pixel Code -->
     <script>
@@ -71,6 +153,16 @@
             --gap-section: 120px;
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-serif: Georgia, 'Times New Roman', serif;
+
+            /* Escala tipográfica */
+            --fs-eyebrow: 0.72rem;
+            --fs-lead: 1.125rem;
+            --fs-h2: clamp(2.2rem, 4.5vw, 3.5rem);
+            --fs-h2-cta: clamp(2.2rem, 5vw, 4rem);
+            --fs-card-title: 1.2rem;
+            --fs-body: 0.95rem;
+            --lh-tight: 1.08;
+            --lh-body: 1.7;
         }
 
         /* ============================================
@@ -112,22 +204,24 @@
         .section-tag {
             display: inline-block;
             font-family: var(--font-sans);
-            font-size: 0.7rem;
+            font-size: var(--fs-eyebrow);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 0.18em;
+            line-height: 1;
             color: var(--gold);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .section-title {
             font-family: var(--font-sans);
-            font-size: 3.5rem;
+            font-size: var(--fs-h2);
             font-weight: 300;
-            line-height: 1.05;
+            line-height: var(--lh-tight);
             letter-spacing: -0.02em;
             margin-bottom: 1.25rem;
             color: var(--text);
+            text-wrap: balance;
         }
 
         .section-title em {
@@ -139,11 +233,12 @@
 
         .section-text {
             font-family: var(--font-sans);
-            font-size: 1.125rem;
+            font-size: var(--fs-lead);
             font-weight: 300;
-            line-height: 1.7;
+            line-height: var(--lh-body);
             color: var(--text-secondary);
-            max-width: 650px;
+            max-width: 62ch;
+            text-wrap: pretty;
         }
 
         .section-text.centered {
@@ -243,6 +338,7 @@
         .hero {
             position: relative;
             height: 100vh;
+            height: 100svh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -265,7 +361,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(25,25,25,0.60) 0%, rgba(25,25,25,0.35) 40%, rgba(25,25,25,0.65) 100%);
+            background: linear-gradient(180deg, rgba(25,25,25,0.60) 0%, rgba(25,25,25,0.35) 80%, rgba(25,25,25,0.65) 100%);
             z-index: 1;
         }
 
@@ -333,12 +429,13 @@
 
         .hero-title {
             font-family: var(--font-sans);
-            font-size: 4.5rem;
+            font-size: clamp(1.9rem, 4.5vw, 2.8rem);
             font-weight: 300;
-            line-height: 1;
-            letter-spacing: -0.03em;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
             color: #fff;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
+            text-wrap: balance;
         }
 
         .hero-title em {
@@ -348,72 +445,74 @@
             color: var(--gold-light);
         }
 
-        .hero-subline {
-            display: block;
-            font-family: var(--font-sans);
-            font-size: 1.8rem;
-            font-weight: 300;
-            letter-spacing: -0.02em;
-            color: rgba(255,255,255,0.8);
-            margin-top: 0.75rem;
-            min-height: 2.4rem;
+        /* Diferenciais do Pilates (fadein sequencial) */
+        .hero-features {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            margin: 0 auto 2.25rem;
+            max-width: 760px;
         }
 
-        .text-rotate {
-            display: inline-block;
-            position: relative;
-            color: var(--gold-light);
+        .hero-feature {
+            font-family: var(--font-sans);
+            font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+            font-weight: 300;
+            letter-spacing: 0.01em;
+            line-height: 1.4;
+            color: rgba(255,255,255,0.82);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0, 0, 1),
+                        transform 0.8s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .hero-feature.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Palavra-chave com efeito premium: borrado -> nítido */
+        .hero-feature-word {
             font-family: var(--font-serif);
             font-style: italic;
             font-weight: 400;
-            min-width: 120px;
-            text-align: left;
-        }
-
-        .text-rotate .word {
-            display: inline-block;
+            color: var(--gold-light);
+            filter: blur(14px);
             opacity: 0;
-            transform: translateY(12px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            position: absolute;
-            left: 0;
-            white-space: nowrap;
+            transform: translateY(6px);
+            transition: filter 0.9s cubic-bezier(0.2, 0, 0, 1),
+                        opacity 0.9s cubic-bezier(0.2, 0, 0, 1),
+                        transform 0.9s cubic-bezier(0.2, 0, 0, 1);
         }
 
-        .text-rotate .word.active {
+        .hero-feature.visible .hero-feature-word {
+            filter: blur(0);
             opacity: 1;
             transform: translateY(0);
-            position: relative;
         }
 
-        .text-rotate .word.exit {
-            opacity: 0;
-            transform: translateY(-12px);
-        }
-
-        .text-rotate-cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1.4em;
-            background: var(--gold-light);
-            margin-left: 4px;
-            vertical-align: text-bottom;
-            animation: blink-cursor 0.8s step-end infinite;
-        }
-
-        @keyframes blink-cursor {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .hero-sub {
+        /* Frase de resultado no HERO */
+        .hero-result {
             font-family: var(--font-sans);
-            font-size: 1.15rem;
+            font-size: 1rem;
             font-weight: 300;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.7);
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
+            letter-spacing: 0.02em;
+            color: rgba(255,255,255,0.6);
+            margin: 0 auto 2.25rem;
+            max-width: 52ch;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0, 0, 1),
+                        transform 0.8s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .hero-result.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .hero-actions {
@@ -463,20 +562,57 @@
 
         .trust-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
 
         .trust-card {
             position: relative;
-            padding: 3rem 2.5rem;
-            background: #fff;
+            padding: 2.5rem;
+            min-height: 400px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             border-radius: 28px;
             transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
             border: 1px solid rgba(27,27,27,0.04);
             box-shadow: 0 10px 40px -15px rgba(0,0,0,0.04);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            text-align: left;
+            color: #fff;
+        }
+
+        /* Overlay escuro para garantir que o texto fique legível sobre a imagem */
+        .trust-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(0,0,0,0.10) 0%,
+                rgba(0,0,0,0.30) 45%,
+                rgba(0,0,0,0.88) 100%
+            );
+            transition: background 0.4s ease;
+        }
+
+        .trust-card:hover::after {
+            background: linear-gradient(
+                180deg,
+                rgba(0,0,0,0.15) 0%,
+                rgba(0,0,0,0.35) 45%,
+                rgba(0,0,0,0.92) 100%
+            );
+        }
+
+        .trust-card > * {
+            position: relative;
+            z-index: 2;
         }
 
         .trust-card::before {
@@ -489,27 +625,31 @@
             background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
             opacity: 0;
             transition: opacity 0.4s ease;
+            z-index: 3;
         }
 
         .trust-card:hover::before { opacity: 1; }
 
         .trust-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 25px 60px -20px rgba(200, 164, 106, 0.15);
-            border-color: rgba(200, 164, 106, 0.12);
+            box-shadow: 0 25px 60px -20px rgba(0, 0, 0, 0.35);
+            border-color: rgba(200, 164, 106, 0.25);
         }
 
         .trust-icon {
             width: 56px;
             height: 56px;
             margin-bottom: 1.25rem;
-            background: rgba(200, 164, 106, 0.08);
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.3rem;
-            color: var(--gold);
+            color: var(--gold-light);
             transition: all 0.4s ease;
         }
 
@@ -521,15 +661,103 @@
 
         .trust-card h3 {
             font-family: var(--font-sans);
-            font-size: 1.2rem;
-            font-weight: 500;
+            font-size: var(--fs-card-title);
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
             margin-bottom: 0.75rem;
-            color: var(--text);
+            color: #fff;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
         }
 
         .trust-card p {
             font-family: var(--font-sans);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.94);
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+        }
+
+        /* ============================================
+           SEÇÃO: PARA QUEM É
+           ============================================ */
+        .audience-section {
+            padding: var(--gap-section) 0;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .audience-card {
+            position: relative;
+            padding: 2.5rem 2rem;
+            background: #fff;
+            border-radius: 28px;
+            border: 1px solid rgba(27,27,27,0.04);
+            box-shadow: 0 10px 40px -15px rgba(0,0,0,0.04);
+            transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
+            overflow: hidden;
+        }
+
+        .audience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .audience-card:hover::before { opacity: 1; }
+
+        .audience-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 60px -20px rgba(200, 164, 106, 0.15);
+            border-color: rgba(200, 164, 106, 0.12);
+        }
+
+        .audience-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(200, 164, 106, 0.1);
+            border: 1px solid rgba(200, 164, 106, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+            transition: all 0.4s ease;
+        }
+
+        .audience-card:hover .audience-icon {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .audience-card h3 {
+            font-family: var(--font-sans);
+            font-size: var(--fs-card-title);
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        .audience-card p {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
             font-weight: 300;
             line-height: 1.7;
             color: var(--text-secondary);
@@ -542,11 +770,18 @@
             padding: var(--gap-section) 0;
         }
 
+        .care-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
         .care-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: 1.5rem;
-            margin-top: 3rem;
         }
 
         .care-step {
@@ -606,8 +841,10 @@
 
         .care-step h3 {
             font-family: var(--font-sans);
-            font-size: 1.15rem;
-            font-weight: 500;
+            font-size: var(--fs-card-title);
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
             margin-bottom: 0.5rem;
             color: var(--text);
         }
@@ -620,213 +857,112 @@
             color: var(--text-secondary);
         }
 
+        .care-video {
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px -20px rgba(0,0,0,0.15);
+            border: 1px solid rgba(27,27,27,0.04);
+            max-width: 260px;
+            margin: 0 auto;
+        }
+
+        .care-video video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            background: #000;
+        }
+
         .care-cta {
             text-align: center;
             margin-top: 3rem;
         }
 
         /* ============================================
-           SEÇÃO: PARA QUEM É (CARDS DE BENEFÍCIO)
+           SEÇÃO: MÉTODO (PROGRESSÃO POR FASES)
            ============================================ */
-        .forwhom-section { padding: var(--gap-section) 0; }
+        .phases-section {
+            padding: var(--gap-section) 0;
+            background: linear-gradient(180deg, var(--bg) 0%, rgba(200,164,106,0.03) 100%);
+        }
 
-        .forwhom-grid {
+        .phases-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-top: 3rem;
         }
 
-        .forwhom-card {
-            position: relative;
-            padding: 2.5rem 2rem;
-            background: #fff;
+        .phases-grid .care-step {
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        /* ============================================
+           SEÇÃO: MODALIDADES
+           ============================================ */
+        .modalities-section {
+            padding: var(--gap-section) 0;
+            background: var(--dark);
+            color: #fff;
+        }
+
+        .modalities-section .section-tag { color: var(--gold-light); }
+        .modalities-section .section-title { color: #fff; }
+        .modalities-section .section-title em { color: var(--gold-light); }
+        .modalities-section .section-text { color: rgba(255,255,255,0.6); }
+
+        .modalities-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 720px;
+            margin: 3rem auto 0;
+        }
+
+        .modality-card {
+            padding: 2.5rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
             border-radius: 28px;
-            transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
-            border: 1px solid rgba(27,27,27,0.04);
-            box-shadow: 0 10px 40px -15px rgba(0,0,0,0.04);
-            overflow: hidden;
-        }
-
-        .forwhom-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .forwhom-card:hover::before { opacity: 1; }
-
-        .forwhom-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 60px -20px rgba(200, 164, 106, 0.15);
-            border-color: rgba(200, 164, 106, 0.12);
-        }
-
-        .forwhom-icon {
-            width: 56px;
-            height: 56px;
-            margin-bottom: 1.25rem;
-            background: rgba(200, 164, 106, 0.08);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            color: var(--gold);
             transition: all 0.4s ease;
         }
 
-        .forwhom-card:hover .forwhom-icon {
-            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
-            color: #fff;
-            transform: scale(1.05);
+        .modality-card:hover {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(200,164,106,0.2);
+            transform: translateY(-4px);
         }
 
-        .forwhom-card h3 {
+        .modality-tag {
+            display: inline-block;
             font-family: var(--font-sans);
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 0.6rem;
-            color: var(--text);
-        }
-
-        .forwhom-card p {
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            font-weight: 300;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            margin-bottom: 1.25rem;
-        }
-
-        .forwhom-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-family: var(--font-sans);
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--gold);
-            transition: gap 0.3s ease;
-        }
-
-        .forwhom-link i { font-size: 0.7rem; transition: transform 0.3s ease; }
-
-        .forwhom-card:hover .forwhom-link { gap: 0.7rem; }
-        .forwhom-card:hover .forwhom-link i { transform: translateX(3px); }
-
-        /* ============================================
-           SEÇÃO: NÚMEROS / PROVA SOCIAL
-           ============================================ */
-        .numbers-section {
-            background: var(--dark);
-            padding: 100px 0;
-            color: #fff;
-        }
-
-        .numbers-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            text-align: center;
-        }
-
-        .number-item { display: flex; flex-direction: column; align-items: center; }
-
-        .number-value {
-            font-family: var(--font-sans);
-            font-size: 6rem;
-            font-weight: 500;
-            line-height: 1;
-            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .number-label {
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-        }
-
-        /* ============================================
-           SEÇÃO: COMO FUNCIONA (3 PASSOS)
-           ============================================ */
-        .how-section {
-            padding: var(--gap-section) 0;
-            background: linear-gradient(180deg, var(--bg) 0%, rgba(200,164,106,0.03) 100%);
-        }
-
-        .how-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-            margin-top: 3rem;
-            counter-reset: step;
-        }
-
-        .how-step {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            position: relative;
-        }
-
-        .how-step::after {
-            content: '';
-            position: absolute;
-            top: 3rem;
-            left: calc(50% + 3rem);
-            width: calc(100% - 6rem);
-            height: 2px;
-            background: linear-gradient(90deg, var(--gold-light), transparent);
-            opacity: 0.3;
-        }
-
-        .how-step:last-child::after { display: none; }
-
-        .how-number {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-sans);
-            font-size: 1.5rem;
+            font-size: var(--fs-eyebrow);
             font-weight: 600;
-            color: #fff;
-            box-shadow: 0 8px 25px rgba(200, 164, 106, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            line-height: 1;
+            color: var(--gold-light);
+            margin-bottom: 1rem;
         }
 
-        .how-step h3 {
+        .modality-card h3 {
             font-family: var(--font-sans);
-            font-size: 1.3rem;
-            font-weight: 500;
+            font-size: var(--fs-card-title);
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
             margin-bottom: 0.75rem;
-            color: var(--text);
+            color: #fff;
         }
 
-        .how-step p {
+        .modality-card p {
             font-family: var(--font-sans);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 300;
             line-height: 1.7;
-            color: var(--text-secondary);
-            max-width: 300px;
-            margin: 0 auto;
+            color: rgba(255,255,255,0.7);
         }
 
         /* ============================================
@@ -915,67 +1051,6 @@
         }
 
         /* ============================================
-           SEÇÃO: POR QUE A BINOTTI (DIFERENCIAIS)
-           ============================================ */
-        .why-section {
-            padding: var(--gap-section) 0;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .why-card {
-            padding: 3rem 2.5rem;
-            border-radius: 28px;
-            transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
-        }
-
-        .why-card.dark { background: var(--dark); color: #fff; }
-
-        .why-card.gold {
-            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
-            color: #fff;
-        }
-
-        .why-card.light {
-            background: #fff;
-            border: 1px solid rgba(27,27,27,0.04);
-            color: var(--text);
-        }
-
-        .why-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 60px -20px rgba(0,0,0,0.1);
-        }
-
-        .why-icon {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-        }
-
-        .why-card h3 {
-            font-family: var(--font-sans);
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .why-card p {
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            font-weight: 300;
-            line-height: 1.7;
-            opacity: 0.75;
-        }
-
-        .why-card.light p { color: var(--text-secondary); opacity: 1; }
-
-        /* ============================================
            SEÇÃO: SOBRE / HISTÓRIA
            ============================================ */
         .about-section {
@@ -1016,11 +1091,11 @@
            ============================================ */
         .cta-section {
             padding: 120px 0;
-            text-align: left;
+            text-align: center;
             background: linear-gradient(135deg, rgba(200,164,106,0.04), rgba(215,178,123,0.02));
         }
 
-        .cta-section .section-title { font-size: 4rem; }
+        .cta-section .section-title { font-size: var(--fs-h2-cta); }
         .cta-section .section-text { margin: 0 auto 2.5rem; }
 
         .cta-urgency {
@@ -1246,15 +1321,14 @@
            ============================================ */
         @media (max-width: 1024px) {
             .trust-grid { grid-template-columns: repeat(2, 1fr); }
-            .forwhom-grid { grid-template-columns: repeat(2, 1fr); }
-            .how-grid { gap: 1.5rem; }
+            .audience-grid { grid-template-columns: repeat(2, 1fr); }
+            .phases-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 900px) {
-            .numbers-grid { gap: 2rem; }
-            .number-value { font-size: 5rem; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .testimonials-grid { grid-template-columns: 1fr; }
+            .modalities-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -1262,11 +1336,11 @@
             section { padding: 60px 0; }
             :root { --gap-section: 80px; }
 
-            .hero-title { font-size: 2.8rem; }
+            .hero-title { font-size: 1.7rem; margin-bottom: 1.5rem; }
             .hero-content { padding: 0 24px; }
-            .hero-sub { font-size: 1rem; }
-            .hero-subline { font-size: 1.2rem; min-height: 1.8rem; }
-            .text-rotate { min-width: 80px; }
+
+            .hero-features { gap: 0.5rem; margin: 0 auto 2rem; }
+            .hero-feature { font-size: 1.05rem; }
 
             .hero-actions {
                 flex-direction: column;
@@ -1278,25 +1352,17 @@
 
             .section-title { font-size: 2.2rem; }
             .cta-section .section-title { font-size: 2.2rem; }
+            .cta-section { padding: 80px 0; }
+            .hero-scroll { bottom: 16px; }
 
             .trust-grid { grid-template-columns: 1fr; }
+            .trust-card { min-height: 320px; }
+            .audience-grid { grid-template-columns: 1fr; }
+            .phases-grid { grid-template-columns: 1fr; }
+            .modalities-grid { grid-template-columns: 1fr; }
+            .care-layout { grid-template-columns: 1fr; }
             .care-grid { grid-template-columns: 1fr; }
-            .forwhom-grid { grid-template-columns: 1fr; }
-
-            .how-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .how-step::after { display: none; }
-
-            .why-grid { grid-template-columns: 1fr; }
-
-            .numbers-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            .number-value { font-size: 4.5rem; }
+            .care-video { height: auto; min-height: 0; max-width: 320px; }
 
             .footer-grid {
                 grid-template-columns: 1fr;
@@ -1331,7 +1397,292 @@
                 transition-delay: 0s;
             }
         }
-    
+
+        /* ============================================
+           SEÇÃO: FAQ (DÚVIDAS FREQUENTES)
+           ============================================ */
+        .faq-section {
+            padding: var(--gap-section) 0;
+            background: linear-gradient(180deg, var(--bg) 0%, rgba(200,164,106,0.03) 100%);
+        }
+
+        .faq-list {
+            max-width: 760px;
+            margin: 3rem auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: #fff;
+            border: 1px solid rgba(27,27,27,0.04);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px -15px rgba(0,0,0,0.04);
+            overflow: hidden;
+            transition: box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(200,164,106,0.2);
+            box-shadow: 0 20px 50px -20px rgba(200,164,106,0.15);
+        }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.5rem 2rem;
+            font-family: var(--font-sans);
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text);
+            position: relative;
+        }
+
+        .faq-item summary::-webkit-details-marker { display: none; }
+
+        .faq-item summary::after {
+            content: '+';
+            flex-shrink: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(200,164,106,0.1);
+            border: 1px solid rgba(200,164,106,0.3);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            color: #fff;
+        }
+
+        .faq-item .faq-answer {
+            padding: 0 2rem 1.5rem;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .faq-item .faq-answer a {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .faq-item .faq-answer a:hover { text-decoration: underline; }
+
+        /* ============================================
+           SEÇÃO: REGIÕES ATENDIDAS
+           ============================================ */
+        .areas-section {
+            padding: var(--gap-section) 0;
+        }
+
+        .areas-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .areas-list span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text);
+            padding: 0.6rem 1.25rem;
+            border-radius: 9999px;
+            background: #fff;
+            border: 1px solid rgba(200,164,106,0.25);
+            box-shadow: 0 10px 40px -15px rgba(0,0,0,0.04);
+        }
+
+        .areas-list span i { color: var(--gold); }
+
+        /* ============================================
+           WHATSAPP FAB (FLUTUANTE)
+           ============================================ */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 8px 30px rgba(18, 140, 126, 0.4);
+            opacity: 0;
+            transform: scale(0.5) translateY(20px);
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+            text-decoration: none;
+        }
+
+        .whatsapp-fab.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            visibility: visible;
+        }
+
+        .whatsapp-fab:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 40px rgba(18, 140, 126, 0.5);
+        }
+
+        .whatsapp-fab::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: #25D366;
+            opacity: 0.4;
+            pointer-events: none;
+            animation: fab-pulse 2s ease-in-out infinite;
+        }
+
+        .whatsapp-fab i { position: relative; z-index: 1; }
+
+        @keyframes fab-pulse {
+            0% { transform: scale(1); opacity: 0.4; }
+            70% { transform: scale(1.5); opacity: 0; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-fab {
+                bottom: 18px;
+                right: 18px;
+                width: 54px;
+                height: 54px;
+                font-size: 1.4rem;
+            }
+        }
+
+        /* ========== MODAL DE CAPTURA DE TELEFONE (GCLID) ========== */
+        .gclid-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        .gclid-modal-overlay.open { display: flex; }
+        .gclid-modal-box {
+            background: var(--dark);
+            color: #fff;
+            border-radius: 24px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 420px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            font-family: var(--font-sans);
+        }
+        .gclid-modal-box h2 {
+            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        .gclid-modal-box p.sub {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .gclid-modal-box input {
+            width: 100%;
+            padding: 0.875rem;
+            border-radius: 12px;
+            border: 2px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            font-size: 1.125rem;
+            outline: none;
+            margin-bottom: 0.5rem;
+            box-sizing: border-box;
+        }
+        .gclid-modal-box input:focus { border-color: var(--gold); }
+        .gclid-modal-box input.error { border-color: #ef4444; }
+        .gclid-modal-box .error-msg {
+            color: #ef4444;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+            min-height: 1em;
+        }
+        .gclid-modal-box .btn-submit {
+            width: 100%;
+            padding: 0.875rem;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+        }
+        .gclid-modal-box .btn-submit:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(200, 164, 106, 0.35);
+        }
+        .gclid-modal-box .btn-submit:disabled { background: #333; color: #666; cursor: not-allowed; }
+        .gclid-modal-box .privacy {
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.7rem;
+            margin-top: 1rem;
+        }
+        .gclid-modal-box .skip {
+            display: block;
+            margin: 0.75rem auto 0;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .gclid-modal-box .skip:hover { color: var(--gold-light); }
+        .gclid-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.4);
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .gclid-modal-close:hover { color: #fff; }
+
     </style>
 </head>
 <body>
@@ -1350,14 +1701,23 @@
                     </a>
                 </div>
                 <h1 class="hero-title fade-in visible delay-1">
-                    O Pilates que <em>cuida</em> de você<br>
-                    do primeiro ao último movimento<br>
-                    <span class="hero-subline">— seja para <span class="text-rotate" id="text-rotate"><span class="word active">dor lombar</span><span class="word">correr</span><span class="word">qualidade de vida</span><span class="word">prazer</span><span class="text-rotate-cursor"></span></span></span>
+                    Studio de Pilates no <em>Santa Mônica</em>, Florianópolis
                 </h1>
-                <p class="hero-sub fade-in visible delay-2">
-                    Cada aula é pensada para o seu corpo — respeitando seus limites, fortalecendo suas capacidades e construindo resultados reais com segurança.
+                <div class="hero-features" id="hero-features">
+                    <div class="hero-feature">
+                        <span>Pilates clínico com <em class="hero-feature-word">Fisioterapeuta</em></span>
+                    </div>
+                    <div class="hero-feature">
+                        <span>Máximo de 3 <em class="hero-feature-word">alunos</em> por aula</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span><em class="hero-feature-word">Atenção</em> o tempo todo</span>
+                    </div>
+                </div>
+                <p class="hero-result">
+                    Viva sem dor e volte a fazer o que você ama.
                 </p>
-                <div class="hero-actions fade-in visible delay-3">
+                <div class="hero-actions fade-in visible delay-4">
                     <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary" target="_blank">Agende sua aula experimental</a>
                     <a href="#cuidado" class="btn-secondary">Como cuidamos de você</a>
                 </div>
@@ -1379,27 +1739,57 @@
                         movimento <em>consciente</em>
                     </h2>
                     <p class="section-text centered fade-in delay-2">
-                        Não se trata apenas de fazer exercícios. Trata-se de confiar em quem está guiando cada movimento do seu corpo.
+                        Aqui o exercício nunca é genérico: cada movimento tem um propósito e é ajustado ao seu corpo, no seu ritmo.
                     </p>
                 </div>
 
                 <div class="trust-grid">
-                    <div class="trust-card fade-in-scale delay-1">
+                    <div class="trust-card fade-in-scale delay-1" style="background-image: url('images/card-supervisao.jpg');">
                         <div class="trust-icon"><i class="fas fa-user-graduate"></i></div>
                         <h3>Supervisão de Fisioterapeuta</h3>
                         <p>Formação em Fisioterapia que permite ir além do movimento — identificamos a causa do problema e tratamos com precisão, não apenas aliviamos sintomas.</p>
                     </div>
 
-                    <div class="trust-card fade-in-scale delay-2">
-                        <div class="trust-icon"><i class="fas fa-heart"></i></div>
-                        <h3>Atendimento Individualizado</h3>
-                        <p>Cada aula é desenhada exclusivamente para você. Nada de turmas lotadas ou exercícios genéricos — seu corpo é único e merece atenção individual.</p>
-                    </div>
-
-                    <div class="trust-card fade-in-scale delay-3">
+                    <div class="trust-card fade-in-scale delay-2" style="background-image: url('images/card-movimento-seguro.jpg');">
                         <div class="trust-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3>Movimento Seguro e Consciente</h3>
-                        <p>Respeitamos seus limites e evoluímos no seu ritmo. Cada exercício é adaptado para garantir segurança máxima sem abrir mão dos resultados.</p>
+                        <p>Seu plano é ajustado a cada aula, conforme a resposta do seu corpo ao movimento. Nada de repetir exercícios sem propósito — cada um tem um objetivo claro.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PARA QUEM É ========== -->
+        <section class="audience-section" id="para-quem">
+            <div class="container">
+                <div class="centered">
+                    <span class="section-tag fade-in">Para quem é</span>
+                    <h2 class="section-title centered fade-in delay-1">
+                        Feito para quem quer<br>
+                        <em>viver bem</em> no próprio corpo
+                    </h2>
+                    <p class="section-text centered fade-in delay-2">
+                        Se você se identifica com algum destes perfis, o Pilates da Binotti foi pensado para você.
+                    </p>
+                </div>
+
+                <div class="audience-grid">
+                    <div class="audience-card fade-in-scale delay-1">
+                        <div class="audience-icon"><i class="fas fa-user-injured"></i></div>
+                        <h3>Convivência com dor e má postura</h3>
+                        <p>Trabalha sentado(a), sente dores nas costas, ombro ou pescoço e quer aliviar a dor e melhorar a postura sem impacto — sem precisar se adaptar à academia.</p>
+                    </div>
+
+                    <div class="audience-card fade-in-scale delay-2">
+                        <div class="audience-icon"><i class="fas fa-running"></i></div>
+                        <h3>Performance e prevenção</h3>
+                        <p>Já treina ou é ativo(a) e busca complementar o treino, ganhar mobilidade, fortalecer o core e prevenir lesões com segurança.</p>
+                    </div>
+
+                    <div class="audience-card fade-in-scale delay-3">
+                        <div class="audience-icon"><i class="fas fa-heartbeat"></i></div>
+                        <h3>Pós-reabilitação, gestação e envelhecimento ativo</h3>
+                        <p>Recebeu alta da fisioterapia, está grávida ou no pós-parto, ou quer manter a funcionalidade e a autonomia com acompanhamento seguro.</p>
                     </div>
                 </div>
             </div>
@@ -1415,46 +1805,109 @@
                         <em>sob medida</em> para você
                     </h2>
                     <p class="section-text centered fade-in delay-2">
-                        Da primeira conversa à evolução dos movimentos, cada etapa é pensada para que você se sinta acolhido, seguro e motivado.
+                        Da primeira conversa à evolução dos movimentos, você sempre sabe o que está fazendo, por que está fazendo e o que esperar de cada aula.
                     </p>
                 </div>
 
-                <div class="care-grid">
+                <div class="care-layout">
+                    <div class="care-grid">
+                        <div class="care-step fade-in delay-1">
+                            <div class="care-number">1</div>
+                            <div>
+                                <h3>Acompanhamento Constante</h3>
+                                <p>Com no máximo 3 alunos por aula, o fisioterapeuta acompanha cada movimento de perto e ajusta o exercício na hora, conforme sua resposta.</p>
+                            </div>
+                        </div>
+
+                        <div class="care-step fade-in delay-2">
+                            <div class="care-number">2</div>
+                            <div>
+                                <h3>Evolução que Você Sente</h3>
+                                <p>Menos dor, mais disposição, melhor postura, mais qualidade de vida. Resultados reais que você percebe no dia a dia — não apenas no estúdio.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="care-video fade-in">
+                        <video
+                            id="care-video"
+                            data-src="videos/PILATESSEMLEGENDA.mp4"
+                            muted
+                            loop
+                            playsinline
+                            preload="none"
+                            poster="images/espacototal.png">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="care-cta fade-in delay-4">
+                    <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary" target="_blank">Marcar aula experimental</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== MÉTODO (PROGRESSÃO POR FASES) ========== -->
+        <section class="phases-section" id="metodo">
+            <div class="container">
+                <div class="centered">
+                    <span class="section-tag fade-in">Nosso método</span>
+                    <h2 class="section-title centered fade-in delay-1">
+                        Uma progressão <em>estruturada</em>,<br>
+                        não aulas aleatórias
+                    </h2>
+                    <p class="section-text centered fade-in delay-2">
+                        Seu plano evolui em fases claras. Você sempre sabe onde está e para onde vai — com metas que você percebe no dia a dia.
+                    </p>
+                </div>
+
+                <div class="phases-grid">
                     <div class="care-step fade-in delay-1">
                         <div class="care-number">1</div>
                         <div>
-                            <h3>Avaliação Individual</h3>
-                            <p>Uma conversa cuidadosa para entender seu histórico, suas dores, seus objetivos e o que seu corpo precisa. Nada de achismos — tudo parte de um diagnóstico real.</p>
+                            <h3>Avaliação</h3>
+                            <p>Entendemos sua dor, seu histórico e seu objetivo com uma avaliação postural e funcional antes de começar.</p>
                         </div>
                     </div>
 
                     <div class="care-step fade-in delay-2">
                         <div class="care-number">2</div>
                         <div>
-                            <h3>Plano Personalizado</h3>
-                            <p>Com base na sua avaliação, desenhamos uma sequência de exercícios feita exclusivamente para você — respeitando seus limites e desafiando seu potencial.</p>
+                            <h3>Alívio e consciência</h3>
+                            <p>Fase inicial focada em reduzir a dor, melhorar a mobilidade e ensinar o movimento correto, respeitando seus limites.</p>
                         </div>
                     </div>
 
                     <div class="care-step fade-in delay-3">
                         <div class="care-number">3</div>
                         <div>
-                            <h3>Acompanhamento Constante</h3>
-                            <p>Cada aula é supervisionada de perto. Ajustamos os movimentos conforme sua evolução, garantindo que você progrida com segurança e confiança.</p>
-                        </div>
-                    </div>
-
-                    <div class="care-step fade-in delay-4">
-                        <div class="care-number">4</div>
-                        <div>
-                            <h3>Evolução que Você Sente</h3>
-                            <p>Menos dor, mais disposição, melhor postura, mais qualidade de vida. Resultados reais que você percebe no dia a dia — não apenas no estúdio.</p>
+                            <h3>Força e performance</h3>
+                            <p>Progressão para ganho de força, postura e prevenção de lesões — com evolução mensurável e sustentável.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="care-cta fade-in delay-4">
-                    <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary" target="_blank">Quero começar minha jornada</a>
+        <!-- ========== MODALIDADES ========== -->
+        <section class="modalities-section" id="modalidades">
+            <div class="container">
+                <div class="centered">
+                    <span class="section-tag fade-in">Modalidades</span>
+                    <h2 class="section-title centered fade-in delay-1">
+                        Do seu jeito, no <em>seu tempo</em>
+                    </h2>
+                    <p class="section-text centered fade-in delay-2">
+                        Nossas aulas acontecem em grupo reduzido, com no máximo 3 alunos — o equilíbrio perfeito entre convivência e atenção individualizada.
+                    </p>
+                </div>
+
+                <div class="modalities-grid">
+                    <div class="modality-card fade-in-scale delay-1">
+                        <span class="modality-tag">Grupo reduzido</span>
+                        <h3>Até 3 alunos por aula</h3>
+                        <p>O fisioterapeuta acompanha cada movimento de perto e ajusta o exercício na hora, conforme a resposta do seu corpo. Nada de turmas lotadas ou exercícios aleatórios — cada aula é montada para a sua evolução.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1524,15 +1977,183 @@
                             um <em>compromisso</em> com você
                         </h2>
                         <p class="section-text">
-                            Na Binotti Performance, acreditamos que movimento de qualidade transforma vidas. Por isso, cada aula é guiada por profissional com formação em Fisioterapia — unindo o conhecimento clínico à prática do Pilates para oferecer um atendimento que realmente faz diferença.
+                            Nosso <strong>studio de pilates</strong> foi estruturado para que cada aula seja guiada por um profissional com formação em Fisioterapia — unindo o conhecimento clínico à prática do Pilates em um plano pensado para o seu corpo.
                         </p>
                         <p class="section-text">
-                            Nosso espaço foi pensado para que você se sinta acolhido desde o primeiro momento. Aqui, você não é mais um número — você é único, e sua aula também.
+                            A nossa <strong>clínica de fisioterapia e pilates</strong> foi pensada para que você se sinta à vontade desde o primeiro momento — com turmas de no máximo 3 alunos, cada aula é realmente sua, com atenção de verdade.
                         </p>
                         <div class="about-highlight">
-                            <p>“O movimento certo, na hora certa, do jeito certo — isso é o que transforma dor em bem-estar.”</p>
+                            <p>“O movimento certo, na hora certa, do jeito certo — é assim que a dor dá lugar ao bem-estar.”</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== DÚVIDAS FREQUENTES ========== -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="centered">
+                    <span class="section-tag fade-in">Dúvidas Frequentes</span>
+                    <h2 class="section-title centered fade-in delay-1">
+                        Perguntas que <em>todo mundo</em> faz
+                    </h2>
+                    <p class="section-text centered fade-in delay-2">
+                        Se a sua pergunta não estiver aqui, é só chamar no WhatsApp que a gente responde sem pressa.
+                    </p>
+                </div>
+
+                <div class="faq-list fade-in delay-2">
+                    <details class="faq-item">
+                        <summary>Nunca fiz Pilates antes. Posso começar?</summary>
+                        <div class="faq-answer">
+                            <p>Pode — e na verdade a maioria dos nossos alunos começa do zero. O Pilates é pensado exatamente para isso: cada exercício é adaptado ao seu nível, respeitando seus limites. Na aula experimental gratuita você conhece o método sem compromisso e sem precisar saber nada antes.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Tenho dor ou lesão. O Pilates é indicado para mim?</summary>
+                        <div class="faq-answer">
+                            <p>Sim. Como nossas aulas são supervisionadas por um fisioterapeuta, conseguimos adaptar cada movimento ao seu caso com segurança, respeitando seus limites. Quem tem dor crônica, dor lombar ou se recupera de lesão é justamente quem mais se beneficia do Pilates terapêutico.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Preciso ser flexível para fazer Pilates?</summary>
+                        <div class="faq-answer">
+                            <p>Não. Flexibilidade é um dos resultados, não um pré-requisito. Você evolui no seu ritmo e no seu tempo. O objetivo é que cada pessoa melhore a mobilidade e a consciência corporal de forma gradual e segura, sem comparação com ninguém.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Como são as turmas?</summary>
+                        <div class="faq-answer">
+                            <p>Nossas aulas são em grupos de no máximo 3 alunos, acompanhadas pelo fisioterapeuta o tempo todo. Nada de turmas lotadas ou exercícios aleatórios, a aula é montada para permitir uma evolução constante, cada um da sua própria forma.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Em quanto tempo vou sentir resultados?</summary>
+                        <div class="faq-answer">
+                            <p>Cada corpo responde de um jeito. Alguns sentem mais disposição e menos dor já nas primeiras semanas; outros levam um pouco mais de tempo — e está tudo bem. O que garantimos é que você sai de cada aula sabendo o que melhorou, com metas claras e evolução que você percebe no dia a dia.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Quanto custa? É mais caro que a academia?</summary>
+                        <div class="faq-answer">
+                            <p>O investimento é diferente porque o cuidado é diferente: aqui você não é mais um número na turma. São no máximo 3 alunos por aula, com um fisioterapeuta corrigindo cada movimento e um plano feito para o seu corpo. É o tipo de acompanhamento que evita lesões, acelera resultados e faz você manter a frequência. <a href="https://wa.me/message/57G7B7LRYFAOM1" target="_blank" rel="noopener noreferrer">Chame no WhatsApp</a> que apresentamos os valores e o plano ideal para você.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Preciso ir quantas vezes por semana? Vou conseguir manter?</summary>
+                        <div class="faq-answer">
+                            <p>O ideal é de 2 a 3 vezes por semana, mas o plano é ajustado à sua rotina. Temos horários das 6h às 20h, de segunda a sexta, justamente para caber no seu dia. Na aula experimental entendemos sua disponibilidade e montamos um cronograma realista — sem prometer o que você não consegue cumprir.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Como funciona a aula experimental gratuita?</summary>
+                        <div class="faq-answer">
+                            <p>É simples: você <a href="https://wa.me/message/57G7B7LRYFAOM1" target="_blank" rel="noopener noreferrer">chama no WhatsApp</a>, agendamos um horário e você vem conhecer o espaço e experimentar uma aula sem custo e sem compromisso. Depois disso, decidimos juntos o melhor caminho para você.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- JSON-LD: FAQPage -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Nunca fiz Pilates antes. Posso começar?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Pode — e na verdade a maioria dos nossos alunos começa do zero. Cada exercício é adaptado ao seu nível, respeitando seus limites. Na aula experimental gratuita você conhece o método sem compromisso."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Tenho dor ou lesão. O Pilates é indicado para mim?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sim. Como nossas aulas são supervisionadas por um fisioterapeuta, conseguimos adaptar cada movimento ao seu caso com segurança, respeitando seus limites. Quem tem dor crônica ou se recupera de lesão é quem mais se beneficia."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Preciso ser flexível para fazer Pilates?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Não. Flexibilidade é um dos resultados, não um pré-requisito. Você evolui no seu ritmo e no seu tempo, melhorando mobilidade e consciência corporal de forma gradual e segura."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Como são as turmas?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nossas aulas são em grupos de no máximo 3 alunos, acompanhadas pelo fisioterapeuta o tempo todo. Nada de turmas lotadas ou exercícios aleatórios, a aula é montada para permitir uma evolução constante, cada um da sua própria forma."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Em quanto tempo vou sentir resultados?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Cada corpo responde de um jeito. Alguns sentem mais disposição e menos dor já nas primeiras semanas; outros levam um pouco mais de tempo. O que garantimos é um acompanhamento claro e evolução perceptível."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quanto custa? É mais caro que a academia?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "O investimento é diferente porque o cuidado é diferente: no máximo 3 alunos por aula, com um fisioterapeuta corrigindo cada movimento e um plano feito para o seu corpo. É o acompanhamento que evita lesões, acelera resultados e faz você manter a frequência."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Preciso ir quantas vezes por semana? Vou conseguir manter?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "O ideal é de 2 a 3 vezes por semana, mas o plano é ajustado à sua rotina. Temos horários das 6h às 20h, de segunda a sexta. Na aula experimental montamos um cronograma realista para você."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Como funciona a aula experimental gratuita?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "É simples: você chama no WhatsApp, agendamos um horário e você vem conhecer o espaço e experimentar uma aula sem custo e sem compromisso."
+                    }
+                }
+            ]
+        }
+        </script>
+
+        <!-- ========== REGIÕES ATENDIDAS ========== -->
+        <section class="areas-section" id="regioes">
+            <div class="container">
+                <div class="centered">
+                    <span class="section-tag fade-in">Onde estamos</span>
+                    <h2 class="section-title centered fade-in delay-1">
+                        Perto de você, no <em>Santa Mônica</em>
+                    </h2>
+                    <p class="section-text centered fade-in delay-2">
+                        Estamos na Av. Ângelo Crema, 372 — Santa Mônica, Florianópolis. Atendemos moradores do Santa Mônica, Trindade, Córrego Grande e Itacorubi (próximo à UFSC / UDESC).
+                    </p>
+                </div>
+                <div class="areas-list fade-in delay-3">
+                    <span><i class="fas fa-map-marker-alt"></i> Santa Mônica</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Trindade</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Córrego Grande</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Itacorubi</span>
                 </div>
             </div>
         </section>
@@ -1541,11 +2162,11 @@
         <section class="cta-section" id="contato">
             <div class="container">
                 <h2 class="section-title centered fade-in">
-                    Pronto para cuidar<br>
-                    de você com <em>segurança</em>?
+                    Vamos começar<br>
+                    a <em>cuidar</em> de você?
                 </h2>
                 <p class="section-text centered fade-in delay-1">
-                    Agende sua aula experimental gratuita e descubra como o Pilates pode transformar seu corpo — respeitando seus limites e construindo resultados reais.
+                    Agende sua aula experimental gratuita e descubra como o Pilates pode aliviar sua dor, melhorar sua postura e devolver sua disposição.
                 </p>
                 <div class="cta-actions fade-in delay-2">
                     <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary" target="_blank">
@@ -1581,8 +2202,8 @@
                     </iframe>
                 </div>
 
-                <a href="index.html" class="back-link fade-in delay-5">
-                    <i class="fas fa-arrow-left"></i> Voltar para página inicial
+                <a href="#hero" class="back-link fade-in delay-5">
+                    <i class="fas fa-arrow-up"></i> Voltar ao início
                 </a>
             </div>
         </section>
@@ -1599,10 +2220,15 @@
                 <div>
                     <h4>Navegação</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html">Início</a></li>
+                        <li><a href="#hero">Início</a></li>
                         <li><a href="#cuidado">Segurança</a></li>
+                        <li><a href="#para-quem">Para quem é</a></li>
                         <li><a href="#processo">Como cuidamos</a></li>
+                        <li><a href="#metodo">Método</a></li>
+                        <li><a href="#modalidades">Modalidades</a></li>
                         <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#faq">Dúvidas</a></li>
+                        <li><a href="#regioes">Regiões atendidas</a></li>
                         <li><a href="#contato">Contato</a></li>
                     </ul>
                 </div>
@@ -1615,9 +2241,6 @@
                         <a href="https://wa.me/message/57G7B7LRYFAOM1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="#" aria-label="Facebook">
-                            <i class="fab fa-facebook"></i>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -1629,31 +2252,160 @@
     </footer>
 
     <script>
-        // Text Rotate Effect
+        // Fadein sequencial dos diferenciais do HERO
         document.addEventListener('DOMContentLoaded', function() {
-            var rotateEl = document.getElementById('text-rotate');
-            if (rotateEl) {
-                var words = rotateEl.querySelectorAll('.word');
-                var current = 0;
-                var total = words.length;
+            var features = document.querySelectorAll('.hero-feature');
+            features.forEach(function(feature, index) {
+                setTimeout(function() {
+                    feature.classList.add('visible');
+                }, 600 + (index * 400));
+            });
 
-                function rotateWord() {
-                    var active = words[current];
-                    active.classList.remove('active');
-                    active.classList.add('exit');
-
-                    current = (current + 1) % total;
-
-                    var next = words[current];
-                    setTimeout(function() {
-                        active.classList.remove('exit');
-                        next.classList.add('active');
-                    }, 500);
-                }
-
-                setInterval(rotateWord, 2800);
+            // Frase de resultado aparece após todos os diferenciais
+            var result = document.querySelector('.hero-result');
+            if (result) {
+                setTimeout(function() {
+                    result.classList.add('visible');
+                }, 600 + (features.length * 400) + 300);
             }
         });
+
+        // ========== CAPTURA DO GCLID (Google Ads) ==========
+        // URL do backend Django (mesmo do neutralize-react)
+        const GCLID_API_URL = "https://neutralize-api.fly.dev/api/whatsapp/lead-gclid/";
+        const WHATSAPP_LINK = "https://wa.me/message/57G7B7LRYFAOM1";
+
+        // Captura o gclid da URL e salva no localStorage
+        (function captureGclidFromUrl() {
+            try {
+                var params = new URLSearchParams(window.location.search);
+                var gclid = params.get("gclid");
+
+                if (gclid) {
+                    localStorage.setItem("gclid", gclid);
+                    localStorage.setItem("gclid_timestamp", new Date().toISOString());
+                    console.log("[GCLID] ✅ Capturado da URL:", gclid.slice(0, 40) + (gclid.length > 40 ? "..." : ""));
+                }
+
+                // Recupera de sessionStorage (redirect), se existir
+                var sessionGclid = sessionStorage.getItem("gclid_temp");
+                if (sessionGclid && !localStorage.getItem("gclid")) {
+                    localStorage.setItem("gclid", sessionGclid);
+                    sessionStorage.removeItem("gclid_temp");
+                    console.log("[GCLID] ✅ Recuperado de sessionStorage (redirect):", sessionGclid.slice(0, 40) + "...");
+                }
+            } catch (e) {
+                console.warn("[GCLID] Erro ao capturar:", e);
+            }
+        })();
+
+        // Retorna o gclid armazenado (se existir)
+        function getStoredGclid() {
+            try {
+                return localStorage.getItem("gclid");
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // ========== MODAL DE CAPTURA DE TELEFONE (GCLID) ==========
+        function openGclidModal() {
+            document.getElementById("gclid-modal").classList.add("open");
+            document.getElementById("gclid-phone-input").focus();
+        }
+
+        function closeGclidModal() {
+            document.getElementById("gclid-modal").classList.remove("open");
+        }
+
+        // Máscara de telefone: (XX) XXXXX-XXXX
+        function formatGclidPhone(value) {
+            var digits = value.replace(/\D/g, "").slice(0, 11);
+            if (digits.length <= 2) return "(" + digits;
+            if (digits.length <= 7) return "(" + digits.slice(0, 2) + ") " + digits.slice(2);
+            return "(" + digits.slice(0, 2) + ") " + digits.slice(2, 7) + "-" + digits.slice(7);
+        }
+
+        function handleGclidPhoneChange(input) {
+            input.value = formatGclidPhone(input.value);
+            input.classList.remove("error");
+            document.getElementById("gclid-phone-error").textContent = "";
+            updateGclidSubmitButton();
+        }
+
+        function isValidGclidPhone(phoneRaw) {
+            return phoneRaw.replace(/\D/g, "").length >= 10;
+        }
+
+        function updateGclidSubmitButton() {
+            var phone = document.getElementById("gclid-phone-input").value;
+            document.getElementById("gclid-submit-btn").disabled = !isValidGclidPhone(phone);
+        }
+
+        // Envia o GCLID + telefone ao backend e redireciona para o WhatsApp
+        function submitGclidLead() {
+            var phoneInput = document.getElementById("gclid-phone-input");
+            var digits = phoneInput.value.replace(/\D/g, "");
+            var gclid = getStoredGclid();
+
+            if (!isValidGclidPhone(phoneInput.value)) {
+                phoneInput.classList.add("error");
+                document.getElementById("gclid-phone-error").textContent = "Digite um telefone válido com DDD";
+                return;
+            }
+
+            if (!gclid) {
+                // Sem GCLID → redireciona direto
+                window.location.href = WHATSAPP_LINK;
+                return;
+            }
+
+            var btn = document.getElementById("gclid-submit-btn");
+            btn.disabled = true;
+            btn.textContent = "Aguarde...";
+
+            var enviado = false;
+
+            fetch(GCLID_API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    gclid: gclid,
+                    telefone: digits,
+                    page_url: window.location.href
+                })
+            })
+                .then(function (res) {
+                    enviado = res.ok;
+                    if (!res.ok) {
+                        console.error("[GCLID] Falha ao enviar lead-gclid (status " + res.status + "):");
+                        return res.text().catch(function () { return ""; }).then(function (t) { console.error(t); });
+                    }
+                })
+                .catch(function (err) {
+                    console.error("[GCLID] Erro de rede ao enviar lead-gclid:", err);
+                })
+                .finally(function () {
+                    btn.textContent = "Ir para o WhatsApp";
+
+                    // Só limpa o gclid se o backend confirmou (res.ok).
+                    // Em falha, mantém o gclid para permitir reenvio/rastreio.
+                    if (enviado) {
+                        localStorage.removeItem("gclid");
+                        localStorage.removeItem("gclid_timestamp");
+                    } else {
+                        console.warn("[GCLID] Envio falhou; mantendo gclid no localStorage para reenvio");
+                    }
+
+                    // Redireciona para o WhatsApp (não bloqueia o lead)
+                    window.location.href = WHATSAPP_LINK;
+                });
+        }
+
+        // Pular — ir direto sem informar telefone
+        function skipGclidAndGo() {
+            window.location.href = WHATSAPP_LINK;
+        }
 
         document.addEventListener('DOMContentLoaded', function() {
             const WHATSAPP_LINK = "https://wa.me/message/57G7B7LRYFAOM1";
@@ -1734,7 +2486,6 @@
                 btn.addEventListener('click', function(e) {
                     var href = btn.getAttribute('href');
                     if (href && href.startsWith('https://wa.me')) {
-                        e.preventDefault();
                         // Gerar eventID único para deduplicação Pixel + CAPI
                         var eventId = 'leadpilates_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
                         // Pixel (navegador) com eventID
@@ -1743,15 +2494,38 @@
                         sendConversionAPI('LeadPilates', {
                             clientUserAgent: navigator.userAgent
                         }, eventId);
-                        // Google Ads
-                        gtag('event', 'whatsapp_pilates', {
-                            'event_callback': function() {
-                                window.location.href = href;
-                            },
-                            'event_timeout': 2000
-                        });
+                        // Google Ads — dispara sem bloquear navegação
+                        gtag('event', 'whatsapp_pilates', {});
+
+                        // ===== CAPTURA DE GCLID =====
+                        // Se houver gclid armazenado, intercepta o clique e abre o
+                        // modal para capturar o telefone antes de redirecionar.
+                        if (getStoredGclid()) {
+                            e.preventDefault();
+                            openGclidModal();
+                        }
+                        // Se não houver gclid, a navegação natural ocorre normalmente.
+                        // NÃO chamamos preventDefault() — o href nativo segue funcionando
+                        // mesmo que o tracking falhe. Isso elimina dead clicks.
                     }
                 });
+            });
+
+            // ===== CAPTURA DE GCLID — links de WhatsApp fora dos botões =====
+            // Captura qualquer clique em link do WhatsApp (ex.: WhatsApp FAB, ícone
+            // do footer, link no FAQ) que não tenha sido interceptado pelo loop acima.
+            document.addEventListener('click', function (e) {
+                // Se o modal já está aberto, não interfere
+                if (document.getElementById('gclid-modal').classList.contains('open')) return;
+
+                var target = e.target.closest ? e.target.closest('a[href*="wa.me"]') : null;
+                if (!target) return;
+
+                // Se houver gclid, intercepta e abre o modal
+                if (getStoredGclid()) {
+                    e.preventDefault();
+                    openGclidModal();
+                }
             });
         });
     </script>
@@ -1770,6 +2544,87 @@
             return false;
         }
     </script>
+
+    <!-- ========== WHATSAPP FLUTUANTE ========== -->
+    <a href="https://wa.me/message/57G7B7LRYFAOM1" class="whatsapp-fab" id="whatsapp-fab"
+       target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <script>
+        // Lazy load do vídeo da seção "Como cuidamos de você"
+        (function () {
+            var video = document.getElementById('care-video');
+            if (!video) return;
+            var src = video.getAttribute('data-src');
+            if (!src) return;
+
+            function loadVideo() {
+                if (video.getAttribute('src')) return;
+                video.setAttribute('src', src);
+                video.load();
+                var p = video.play();
+                if (p && typeof p.catch === 'function') p.catch(function () {});
+            }
+
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            loadVideo();
+                            observer.disconnect();
+                        }
+                    });
+                }, { rootMargin: '200px' });
+                observer.observe(video);
+            } else {
+                loadVideo();
+            }
+        })();
+    </script>
+
+    <script>
+        // WhatsApp FAB — aparece após rolar 400px
+        (function () {
+            var fab = document.getElementById('whatsapp-fab');
+            if (!fab) return;
+
+            function toggleFab() {
+                if (window.scrollY > 400) {
+                    fab.classList.add('visible');
+                } else {
+                    fab.classList.remove('visible');
+                }
+            }
+
+            window.addEventListener('scroll', toggleFab, { passive: true });
+            toggleFab();
+        })();
+    </script>
+
+    <!-- ========== MODAL DE CAPTURA DE TELEFONE (GCLID) ========== -->
+    <div class="gclid-modal-overlay" id="gclid-modal">
+        <div class="gclid-modal-box">
+            <button class="gclid-modal-close" onclick="closeGclidModal()" aria-label="Fechar">&times;</button>
+            <h2>Fale Conosco no WhatsApp</h2>
+            <p class="sub">Digite seu telefone para iniciar o atendimento</p>
+
+            <input
+                type="tel"
+                id="gclid-phone-input"
+                placeholder="(DDD) 99999-8888"
+                autocomplete="tel"
+                oninput="handleGclidPhoneChange(this)"
+                onkeydown="if(event.key==='Enter') submitGclidLead()"
+            />
+            <div class="error-msg" id="gclid-phone-error"></div>
+
+            <button class="btn-submit" id="gclid-submit-btn" onclick="submitGclidLead()">Ir para o WhatsApp</button>
+
+            <p class="privacy">Seu número não será compartilhado com terceiros</p>
+            <button class="skip" onclick="skipGclidAndGo()">Não quero informar, quero ir direto</button>
+        </div>
+    </div>
 
 </body>
 </html>

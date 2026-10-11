@@ -633,7 +633,7 @@
             display: flex;
             width: 70%;
             flex-direction: column;
-            justify-self: right;
+            margin: 0 auto;
         }
 
         .training-video-placeholder {
@@ -1070,6 +1070,12 @@
             color: white;
         }
 
+        .logo-footer img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
         .footer-links {
             display: flex;
             gap: 2rem;
@@ -1100,6 +1106,14 @@
         }
 
         /* ========== RESPONSIVO GLOBAL ========== */
+        /* Estado intermediário de 2 colunas para galeria e pilares no tablet */
+        @media (max-width: 1000px) {
+            .gallery-grid,
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 800px) {
             .container {
                 padding: 0 24px;
@@ -1145,7 +1159,8 @@
             .delay-2,
             .delay-3,
             .delay-4,
-            .delay-5 {
+            .delay-5,
+            .delay-6 {
                 transition-delay: 0s;
             }
 
@@ -1158,10 +1173,6 @@
             }
 
             .scroll-indicator {
-                bottom: -20px;
-            }
-
-            .scroll-indicator .scroll-text {
                 display: none;
             }
 
@@ -1330,6 +1341,7 @@
         .delay-3 { transition-delay: 0.3s; }
         .delay-4 { transition-delay: 0.4s; }
         .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
 
         /* ========== SCROLL PROGRESS BAR ========== */
         .scroll-progress {
@@ -1569,6 +1581,108 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* ========== MODAL DE CAPTURA DE TELEFONE (GCLID) ========== */
+        .gclid-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        .gclid-modal-overlay.open { display: flex; }
+        .gclid-modal-box {
+            background: var(--dark);
+            color: #fff;
+            border-radius: 24px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 420px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            font-family: 'Inter', sans-serif;
+        }
+        .gclid-modal-box h2 {
+            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        .gclid-modal-box p.sub {
+            color: #b9c7d9;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .gclid-modal-box input {
+            width: 100%;
+            padding: 0.875rem;
+            border-radius: 12px;
+            border: 2px solid var(--primary-soft);
+            background: var(--dark-soft);
+            color: #fff;
+            font-size: 1.125rem;
+            outline: none;
+            margin-bottom: 0.5rem;
+            box-sizing: border-box;
+        }
+        .gclid-modal-box input:focus { border-color: var(--primary); }
+        .gclid-modal-box input.error { border-color: #ef4444; }
+        .gclid-modal-box .error-msg {
+            color: #ef4444;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+            min-height: 1em;
+        }
+        .gclid-modal-box .btn-submit {
+            width: 100%;
+            padding: 0.875rem;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .gclid-modal-box .btn-submit:hover:not(:disabled) {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transform: translateY(-2px);
+        }
+        .gclid-modal-box .btn-submit:disabled { background: #333; color: #666; cursor: not-allowed; }
+        .gclid-modal-box .privacy {
+            text-align: center;
+            color: #8a9bb0;
+            font-size: 0.7rem;
+            margin-top: 1rem;
+        }
+        .gclid-modal-box .skip {
+            display: block;
+            margin: 0.75rem auto 0;
+            background: none;
+            border: none;
+            color: #8a9bb0;
+            font-size: 0.8rem;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .gclid-modal-box .skip:hover { color: var(--primary-light); }
+        .gclid-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: #8a9bb0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .gclid-modal-close:hover { color: #fff; }
+
     </style>
 </head>
 
@@ -1591,7 +1705,7 @@
                 <a href="pilates.html">Pilates</a>
                 <a href="#servicos">Serviços</a>
                 <a href="#contato">Contato</a>
-                <a href="#" class="btn-primary mobile-cta">Agendar Aula Experimental</a>
+                <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary mobile-cta" target="_blank">Agendar Aula Experimental</a>
             </nav>
 
             <div class="nav-cta desktop-cta">
@@ -1620,12 +1734,12 @@
                 <div class="particle"></div>
             </div>
             <div class="container hero-content">
-                <h1 class="reveal visible">Levando você ao <span class="italic-impact">próximo nível</span> da sua performance</h1>
+                <h1 class="reveal visible">Mais força, menos lesões e <span class="italic-impact">melhor desempenho</span> no seu esporte</h1>
                 <div class="hero-sub reveal visible delay-1">Fortalecimento muscular especializado para esportes de endurance e atletas que
-                    buscam alta performance. Um ambiente pensado para você que não se encaixa em academias
-                    convencionais.</div>
+                    buscam alta performance. Um estúdio com treino individualizado, sem filas de equipamentos e sem
+                    espera.</div>
                 <div class="cta-group reveal visible delay-2">
-                    <a href="#" class="btn-primary">Quero meu treino personalizado →</a>
+                    <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary" target="_blank">Agendar aula experimental →</a>
                     <a href="#" class="btn-outline">Conheça o espaço</a>
                 </div>
                 <div class="trust-badge reveal visible delay-3">
@@ -1635,7 +1749,7 @@
                         <span style="background-image: url('images/foto3.png'); background-size: cover;"></span>
                         <span style="background-image: url('images/foto4.png'); background-size: cover;"></span>
                     </div>
-                    <span>Atendimento personalizado que transforma</span>
+                    <span>Treino individualizado, do seu jeito</span>
                 </div>
                 <div class="scroll-indicator">
                     <i class="fas fa-chevron-down"></i>
@@ -1658,15 +1772,15 @@
                     </div>
                     <div class="history-content">
                         <span class="section-label reveal">Nossa História</span>
-                        <h2 class="reveal delay-1">Nascida para atletas que buscam mais</h2>
+                        <h2 class="reveal delay-1">Nascida para quem não se contenta com o treino de academia</h2>
                         <p class="reveal delay-2">Em 2023, começou a nossa história. Nosso fundador, <strong>Alex Binotti</strong> —
                             profissional de Educação Física e praticante de esportes de endurance —, conhecendo a
                             importância do fortalecimento muscular para um bom desempenho esportivo e ciente de que
                             muitos atletas dessa modalidade não gostam de frequentar academias convencionais, criou a
                             Binotti Performance.</p>
-                        <p class="reveal delay-3">Um espaço pensado para atender desde atletas iniciantes até aqueles que buscam alta
-                            performance, oferecendo treinos de qualidade em um ambiente agradável, tornando mais
-                            acessível e prazerosa a prática do fortalecimento muscular.</p>
+                        <p class="reveal delay-3">Um espaço pensado para atender desde atletas iniciantes até quem busca alta
+                            performance, com treinos individualizados, horários marcados e acompanhamento de perto em
+                            cada série.</p>
                         <div class="history-signature reveal delay-4">
                             <i class="fas fa-quote-right"></i>
                             <span>Alex Binotti, fundador</span>
@@ -1680,7 +1794,7 @@
         <section class="gallery-section">
             <div class="container">
                 <span class="section-label reveal">Nosso Espaço</span>
-                <h2 class="reveal delay-1">Um ambiente feito para você evoluir</h2>
+                <h2 class="reveal delay-1">Um espaço pensado para o seu treino render</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item reveal-scale delay-1">
                         <img src="images/espaco2.JPEG"
@@ -1714,14 +1828,14 @@
                             <i class="fas fa-user-check"></i>
                             <div>
                                 <strong>Correção postural constante</strong>
-                                <span>Ajustes em tempo real para garantir a execução correta</span>
+                                <span>Correção na hora, antes que o movimento vire vício</span>
                             </div>
                         </li>
                         <li class="reveal-left delay-2">
                             <i class="fas fa-chart-line"></i>
                             <div>
                                 <strong>Carga individualizada</strong>
-                                <span>Volume e intensidade ajustados especificamente para você</span>
+                                <span>Carga e ritmo definidos pelo seu nível e pelo seu esporte</span>
                             </div>
                         </li>
                         <li class="reveal-left delay-3">
@@ -1735,12 +1849,12 @@
                             <i class="fas fa-comments"></i>
                             <div>
                                 <strong>Feedback contínuo</strong>
-                                <span>Evolução acompanhada e treino adaptado ao seu progresso</span>
+                                <span>Treino que muda conforme você evolui, sem estagnar</span>
                             </div>
                         </li>
                     </ul>
 
-                    <a href="#" class="btn-primary reveal delay-5">Falar no Whatsapp →</a>
+                    <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary reveal delay-5" target="_blank">Falar no Whatsapp →</a>
                 </div>
 
                 <div class="training-visual reveal-right delay-2">
@@ -1751,7 +1865,7 @@
                         </video>
                     </div>
                     <div class="visual-caption">
-                        <i class="fas fa-eye"></i> Um pequeno vislumbre do nosso espaço
+                        <i class="fas fa-eye"></i> Um pouco do nosso espaço
                     </div>
                 </div>
             </div>
@@ -1764,15 +1878,16 @@
                     <span class="section-label reveal">Metodologia Exclusiva</span>
                     <h2 class="reveal delay-1">Como transformamos <span class="italic-impact">seu treino</span></h2>
                     <p class="methodology-intro reveal delay-2">Diferente das academias convencionais, nossa metodologia segue uma
-                        sequência científica que prepara seu corpo para evoluir com segurança e eficiência.</p>
+                        sequência que prepara o corpo antes de exigir esforço, reduzindo o risco de lesão e melhorando o
+                        rendimento.</p>
                 </div>
                 <div class="methodology-steps">
                     <div class="methodology-card reveal-scale delay-1">
                         <div class="methodology-number">01</div>
                         <div class="methodology-icon"><i class="fas fa-hand-holding-heart"></i></div>
                         <h3>Liberação Miofascial</h3>
-                        <p>Utilizamos técnicas de liberação como preparação para o exercício, auxiliando no desempenho
-                            na hora do movimento, melhor circulação sanguínea e um melhor treino.</p>
+                        <p>Utilizamos técnicas de liberação como preparação para o exercício, soltando tensões e
+                            melhorando a circulação antes do esforço.</p>
                         <div class="methodology-benefit"><i class="fas fa-check-circle"></i><span>Redução de tensões e
                                 dores</span></div>
                     </div>
@@ -1797,15 +1912,15 @@
                         <div class="methodology-icon"><i class="fas fa-dumbbell"></i></div>
                         <h3>Força Funcional</h3>
                         <p>Exercícios específicos e individualizados com foco no seu esporte e nas suas deficiências.
-                            Você ganha muito mais do que só força muscular.</p>
+                            O foco é o movimento que você usa na sua modalidade, não só o peso na barra.</p>
                         <div class="methodology-benefit"><i class="fas fa-check-circle"></i><span>Ganhos reais de
                                 força</span></div>
                     </div>
                 </div>
                 <div class="methodology-cta reveal">
                     <p><strong>Enquanto academias convencionais pulam etapas, nós preparamos seu corpo de forma
-                            completa.</strong> Resultado: menos lesões, mais evolução.</p>
-                    <a href="#" class="btn-primary">Agende uma aula experimental →</a>
+                            completa.</strong> Resultado: menos lesões e mais rendimento no que importa para você.</p>
+                    <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary" target="_blank">Agende uma aula experimental →</a>
                 </div>
             </div>
         </section>
@@ -1817,17 +1932,17 @@
                     <div class="feature-card dark reveal-scale delay-1">
                         <div class="card-icon"><i class="fas fa-chart-line"></i></div>
                         <div class="card-title">FAÇA TREINOS MELHORES</div>
-                        <p>Programas individualizados que respeitam sua modalidade e objetivos.</p>
+                        <p>Treino montado para a sua modalidade, com carga e ritmo que fazem sentido para você.</p>
                     </div>
                     <div class="feature-card image-card reveal-scale delay-2">
                         <div class="card-icon"><i class="fas fa-bullseye"></i></div>
                         <div class="card-title">ESTEJA PRONTO</div>
-                        <p>Desenvolvemos resistência, força funcional e preparo físico para levar você além.</p>
+                        <p>Trabalhamos resistência, força funcional e preparo físico para você render mais no seu esporte.</p>
                     </div>
                     <div class="feature-card light reveal-scale delay-3">
                         <div class="card-icon"><i class="fas fa-dumbbell"></i></div>
                         <div class="card-title">AMBIENTE ACOLHEDOR</div>
-                        <p>Um estúdio planejado para que o fortalecimento seja prazeroso e eficiente.</p>
+                        <p>Um estúdio com horário marcado e sem espera, para o treino ser focado e sem enrolação.</p>
                     </div>
                 </div>
             </div>
@@ -1852,8 +1967,8 @@
                 <div class="services-header">
                     <span class="section-label reveal">Estrutura Completa</span>
                     <h2 class="reveal delay-1">Mais que treino: <span class="italic-impact">cuidado integral</span></h2>
-                    <p class="services-intro reveal delay-2">Da preparação à recuperação, oferecemos tudo que você precisa em um só
-                        lugar.</p>
+                    <p class="services-intro reveal delay-2">Treinamento físico e recuperação — sem sair do
+                        estúdio.</p>
                 </div>
                 <div class="services-full-grid">
                     <div class="service-full-card reveal-scale delay-1">
@@ -1877,7 +1992,7 @@
                     <div class="service-full-card reveal-scale delay-4">
                         <div class="service-full-icon"><i class="fas fa-bed"></i></div>
                         <h3>Recovery & Regeneração</h3>
-                        <p>Técnicas avançadas para acelerar a recuperação muscular.</p>
+                        <p>Recursos para acelerar a recuperação e reduzir a dor muscular pós-treino.</p>
                         <div class="service-tag">Regeneração | Performance</div>
                     </div>
                     <div class="service-full-card reveal-scale delay-5">
@@ -1886,7 +2001,7 @@
                         <p>Compressão pneumática para drenagem linfática e recuperação acelerada.</p>
                         <div class="service-tag">Recuperação | Drenagem</div>
                     </div>
-                    <div class="service-full-card reveal-scale delay-5">
+                    <div class="service-full-card reveal-scale delay-6">
                         <div class="service-full-icon"><i class="fas fa-snowflake"></i></div>
                         <h3>Crioimersão</h3>
                         <p>Terapia de frio extremo para redução da inflamação e alívio de dores.</p>
@@ -1894,8 +2009,8 @@
                     </div>
                 </div>
                 <div class="services-full-cta reveal">
-                    <p><strong>Estrutura completa para aqueles que desejam um treinamento de alto nível.</strong> Não
-                        deixe sua saúde para depois.</p>
+                    <p><strong>Estrutura completa para quem quer um treinamento de alto nível.</strong> Comece pelo
+                        treino que o seu corpo precisa.</p>
                 </div>
             </div>
         </section>
@@ -1903,11 +2018,11 @@
         <!-- ========== FINAL CTA ========== -->
         <section class="final-cta">
             <div class="container">
-                <h2 class="reveal">Venha fazer parte do nosso <span class="italic-impact" style="color: var(--primary);">estúdio de
-                        treinamento</span> !</h2>
-                <p class="reveal delay-1" style="max-width: 550px; margin: 0 auto 2rem; color: var(--text-gray);">Tenha o seu treino
-                    personalizado agora mesmo, em um ambiente projetado para sua evolução.</p>
-                <a href="#" class="btn-primary reveal delay-2">Agendar Aula Experimental →</a>
+                <h2 class="reveal">Comece hoje o seu <span class="italic-impact" style="color: var(--primary);">treino
+                        individualizado</span></h2>
+                <p class="reveal delay-1" style="max-width: 550px; margin: 0 auto 2rem; color: var(--text-gray);">Agende sua aula
+                    experimental e sinta a diferença de um treino feito para o seu esporte e o seu corpo.</p>
+                <a href="https://wa.me/message/57G7B7LRYFAOM1" class="btn-primary reveal delay-2" target="_blank">Agendar Aula Experimental →</a>
             </div>
         </section>
     </main>
@@ -1933,7 +2048,6 @@
                         <i class="fab fa-instagram"></i>
                     </a> <a href="https://wa.me/message/57G7B7LRYFAOM1" target="_blank" rel="noopener noreferrer"><i
                             class="fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
             <hr>
@@ -1944,6 +2058,31 @@
             </div>
         </div>
     </footer>
+
+    <!-- ========== MODAL DE CAPTURA DE TELEFONE (GCLID) ========== -->
+    <div class="gclid-modal-overlay" id="gclid-modal">
+        <div class="gclid-modal-box">
+            <button class="gclid-modal-close" onclick="closeGclidModal()" aria-label="Fechar">&times;</button>
+            <h2>Fale Conosco no WhatsApp</h2>
+            <p class="sub">Digite seu telefone para iniciar o atendimento</p>
+
+            <input
+                type="tel"
+                id="gclid-phone-input"
+                placeholder="(DDD) 99999-8888"
+                autocomplete="tel"
+                oninput="handleGclidPhoneChange(this)"
+                onkeydown="if(event.key==='Enter') submitGclidLead()"
+            />
+            <div class="error-msg" id="gclid-phone-error"></div>
+
+            <button class="btn-submit" id="gclid-submit-btn" onclick="submitGclidLead()">Ir para o WhatsApp</button>
+
+            <p class="privacy">Seu número não será compartilhado com terceiros</p>
+            <button class="skip" onclick="skipGclidAndGo()">Não quero informar, quero ir direto</button>
+        </div>
+    </div>
+
     <script>
         // ========== MENU MOBILE ==========
         const mobileBtn = document.getElementById('mobileMenuBtn');
@@ -1983,6 +2122,142 @@
 
         // ========== LINK DO WHATSAPP CENTRALIZADO ==========
         const WHATSAPP_LINK = "https://wa.me/message/57G7B7LRYFAOM1";
+
+        // ========== CAPTURA DO GCLID (Google Ads) ==========
+        // URL do backend Django (mesmo do neutralize-react)
+        const GCLID_API_URL = "https://neutralize-api.fly.dev/api/whatsapp/lead-gclid/";
+
+        // Captura o gclid da URL e salva no localStorage
+        (function captureGclidFromUrl() {
+            try {
+                var params = new URLSearchParams(window.location.search);
+                var gclid = params.get("gclid");
+
+                if (gclid) {
+                    localStorage.setItem("gclid", gclid);
+                    localStorage.setItem("gclid_timestamp", new Date().toISOString());
+                    console.log("[GCLID] ✅ Capturado da URL:", gclid.slice(0, 40) + (gclid.length > 40 ? "..." : ""));
+                }
+
+                // Recupera de sessionStorage (redirect), se existir
+                var sessionGclid = sessionStorage.getItem("gclid_temp");
+                if (sessionGclid && !localStorage.getItem("gclid")) {
+                    localStorage.setItem("gclid", sessionGclid);
+                    sessionStorage.removeItem("gclid_temp");
+                    console.log("[GCLID] ✅ Recuperado de sessionStorage (redirect):", sessionGclid.slice(0, 40) + "...");
+                }
+            } catch (e) {
+                console.warn("[GCLID] Erro ao capturar:", e);
+            }
+        })();
+
+        // Retorna o gclid armazenado (se existir)
+        function getStoredGclid() {
+            try {
+                return localStorage.getItem("gclid");
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // ========== MODAL DE CAPTURA DE TELEFONE (GCLID) ==========
+        function openGclidModal() {
+            document.getElementById("gclid-modal").classList.add("open");
+            document.getElementById("gclid-phone-input").focus();
+        }
+
+        function closeGclidModal() {
+            document.getElementById("gclid-modal").classList.remove("open");
+        }
+
+        // Máscara de telefone: (XX) XXXXX-XXXX
+        function formatGclidPhone(value) {
+            var digits = value.replace(/\D/g, "").slice(0, 11);
+            if (digits.length <= 2) return "(" + digits;
+            if (digits.length <= 7) return "(" + digits.slice(0, 2) + ") " + digits.slice(2);
+            return "(" + digits.slice(0, 2) + ") " + digits.slice(2, 7) + "-" + digits.slice(7);
+        }
+
+        function handleGclidPhoneChange(input) {
+            input.value = formatGclidPhone(input.value);
+            input.classList.remove("error");
+            document.getElementById("gclid-phone-error").textContent = "";
+            updateGclidSubmitButton();
+        }
+
+        function isValidGclidPhone(phoneRaw) {
+            return phoneRaw.replace(/\D/g, "").length >= 10;
+        }
+
+        function updateGclidSubmitButton() {
+            var phone = document.getElementById("gclid-phone-input").value;
+            document.getElementById("gclid-submit-btn").disabled = !isValidGclidPhone(phone);
+        }
+
+        // Envia o GCLID + telefone ao backend e redireciona para o WhatsApp
+        function submitGclidLead() {
+            var phoneInput = document.getElementById("gclid-phone-input");
+            var digits = phoneInput.value.replace(/\D/g, "");
+            var gclid = getStoredGclid();
+
+            if (!isValidGclidPhone(phoneInput.value)) {
+                phoneInput.classList.add("error");
+                document.getElementById("gclid-phone-error").textContent = "Digite um telefone válido com DDD";
+                return;
+            }
+
+            if (!gclid) {
+                // Sem GCLID → redireciona direto
+                window.location.href = WHATSAPP_LINK;
+                return;
+            }
+
+            var btn = document.getElementById("gclid-submit-btn");
+            btn.disabled = true;
+            btn.textContent = "Aguarde...";
+
+            var enviado = false;
+
+            fetch(GCLID_API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    gclid: gclid,
+                    telefone: digits,
+                    page_url: window.location.href
+                })
+            })
+                .then(function (res) {
+                    enviado = res.ok;
+                    if (!res.ok) {
+                        console.error("[GCLID] Falha ao enviar lead-gclid (status " + res.status + "):");
+                        return res.text().catch(function () { return ""; }).then(function (t) { console.error(t); });
+                    }
+                })
+                .catch(function (err) {
+                    console.error("[GCLID] Erro de rede ao enviar lead-gclid:", err);
+                })
+                .finally(function () {
+                    btn.textContent = "Ir para o WhatsApp";
+
+                    // Só limpa o gclid se o backend confirmou (res.ok).
+                    // Em falha, mantém o gclid para permitir reenvio/rastreio.
+                    if (enviado) {
+                        localStorage.removeItem("gclid");
+                        localStorage.removeItem("gclid_timestamp");
+                    } else {
+                        console.warn("[GCLID] Envio falhou; mantendo gclid no localStorage para reenvio");
+                    }
+
+                    // Redireciona para o WhatsApp (não bloqueia o lead)
+                    window.location.href = WHATSAPP_LINK;
+                });
+        }
+
+        // Pular — ir direto sem informar telefone
+        function skipGclidAndGo() {
+            window.location.href = WHATSAPP_LINK;
+        }
 
         // Função para enviar evento para a API de Conversões do Meta
         function sendConversionAPI(eventName, userData, eventId) {
@@ -2031,7 +2306,7 @@
             }
         }
 
-        // Aplicar link e rastrear conversão com gtagSendEvent
+        // Aplicar link e rastrear conversão
         document.addEventListener('DOMContentLoaded', function () {
             const waButtons = document.querySelectorAll('.btn-primary, .btn-outline');
 
@@ -2041,41 +2316,56 @@
                     return;
                 }
 
-                // Remove href para evitar navegação direta
-                button.removeAttribute('href');
-                button.removeAttribute('target');
+                // Preserva o href original como fallback nativo
+                var originalHref = button.getAttribute('href') || WHATSAPP_LINK;
 
-                // Adiciona o clique que dispara o evento gtag antes de navegar
+                // Adiciona o clique que dispara o tracking antes de navegar
                 button.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    // Gerar eventID único para deduplicação Pixel + CAPI
+                    // Gera eventID único para deduplicação Pixel + CAPI
                     var eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                    // Dispara tracking SEM preventDefault — navegação natural ocorre
                     fbq('track', 'Lead', { eventID: eventId });
-                    gtagSendEvent(WHATSAPP_LINK);
-                    // API de Conversões (servidor) com o MESMO eventID
                     sendConversionAPI('Lead', {
                         clientUserAgent: navigator.userAgent
                     }, eventId);
+                    // Google Ads / GA4 — evento de conversão do clique no WhatsApp
+                    gtag('event', 'whatsapp_binotti', {});
+
+                    // ===== CAPTURA DE GCLID =====
+                    // Se houver gclid armazenado, intercepta o clique e abre o
+                    // modal para capturar o telefone antes de redirecionar.
+                    // O gclid é enviado ao backend junto com o telefone.
+                    if (getStoredGclid()) {
+                        e.preventDefault();
+                        openGclidModal();
+                    }
+                    // Se não houver gclid, a navegação natural ocorre normalmente.
+                    // Não bloqueia navegação nativa — mesmo que tracking falhe,
+                    // o link continua funcionando. Prevenimos dead clicks.
                 });
             });
+            // Observação: o CTA do header desktop (.desktop-cta .btn-primary) já é
+            // capturado pelo loop `waButtons` acima (selector .btn-primary), então
+            // NÃO devemos adicionar outro listener aqui — isso causaria eventos Lead
+            // duplicados (Pixel + CAPI) a cada clique.
 
-            // Também aplica no botão do header desktop
-            const desktopCta = document.querySelector('.desktop-cta .btn-primary');
-            if (desktopCta) {
-                desktopCta.removeAttribute('href');
-                desktopCta.removeAttribute('target');
-                desktopCta.addEventListener('click', function (e) {
+            // ===== CAPTURA DE GCLID — links de WhatsApp fora dos botões =====
+            // Captura qualquer clique em link do WhatsApp (ex.: ícone do footer)
+            // que não tenha sido interceptado pelo loop acima. Se houver gclid,
+            // abre o modal para capturar o telefone antes de redirecionar.
+            document.addEventListener('click', function (e) {
+                // Se o modal já está aberto, não interfere
+                if (document.getElementById('gclid-modal').classList.contains('open')) return;
+
+                var target = e.target.closest ? e.target.closest('a[href*="wa.me"]') : null;
+                if (!target) return;
+
+                // Se houver gclid, intercepta e abre o modal
+                if (getStoredGclid()) {
                     e.preventDefault();
-                    // Gerar eventID único para deduplicação Pixel + CAPI
-                    var eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                    fbq('track', 'Lead', { eventID: eventId });
-                    gtagSendEvent(WHATSAPP_LINK);
-                    // API de Conversões (servidor) com o MESMO eventID
-                    sendConversionAPI('Lead', {
-                        clientUserAgent: navigator.userAgent
-                    }, eventId);
-                });
-            }
+                    openGclidModal();
+                }
+            });
 
             // ========== INICIALIZAR ANIMAÇÕES ==========
             initScrollAnimations();
@@ -2202,24 +2492,6 @@
         });
     </script>
 
-    <!-- Google tag (gtag.js) event - delayed navigation helper -->
-    <script>
-        // Helper function to delay opening a URL until a gtag event is sent.
-        // Call it in response to an action that should navigate to a URL.
-        function gtagSendEvent(url) {
-            var callback = function () {
-                if (typeof url === 'string') {
-                    window.location = url;
-                }
-            };
-            gtag('event', 'whatsapp_binotti', {
-                'event_callback': callback,
-                'event_timeout': 2000,
-                // <event_parameters>
-            });
-            return false;
-        }
-    </script>
 </body>
 
 </html>
