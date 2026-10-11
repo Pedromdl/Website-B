@@ -123,7 +123,8 @@
     </script>
     <!-- End Microsoft Clarity -->
 
-    <!-- Carregamento diferido de scripts de terceiros (reduz o bloqueio da thread principal) -->
+    <!-- Carregamento diferido de scripts de terceiros: só após a 1ª interação do
+         usuário (ou 5s após o load), para não bloquear a thread principal no carregamento -->
     <script>
         (function () {
             var deferredScripts = [
@@ -131,7 +132,10 @@
                 'https://connect.facebook.net/en_US/fbevents.js',
                 'https://www.clarity.ms/tag/x82nxc35jj'
             ];
+            var loaded = false;
             function loadDeferredScripts() {
+                if (loaded) return;
+                loaded = true;
                 deferredScripts.forEach(function (src) {
                     var s = document.createElement('script');
                     s.async = true;
@@ -139,18 +143,17 @@
                     document.head.appendChild(s);
                 });
             }
-            function schedule() {
-                if ('requestIdleCallback' in window) {
-                    requestIdleCallback(loadDeferredScripts, { timeout: 3000 });
-                } else {
-                    setTimeout(loadDeferredScripts, 1);
-                }
+            var events = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+            function onFirstInteraction() {
+                events.forEach(function (e) { window.removeEventListener(e, onFirstInteraction); });
+                loadDeferredScripts();
             }
-            if (document.readyState === 'complete') {
-                schedule();
-            } else {
-                window.addEventListener('load', schedule);
-            }
+            events.forEach(function (e) {
+                window.addEventListener(e, onFirstInteraction, { passive: true });
+            });
+            window.addEventListener('load', function () {
+                setTimeout(loadDeferredScripts, 5000);
+            });
         })();
     </script>
 
