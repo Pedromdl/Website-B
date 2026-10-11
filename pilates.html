@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="google-site-verification" content="f4EqZWBwGxtamBP3jDpm3EIatFY8SlPJYuzKLip7_Fo" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRN3H1B71Y"></script>
+    <!-- Google tag (gtag.js) — script externo carregado de forma diferida -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -98,7 +97,7 @@
     }
     </script>
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code — stub enfileira eventos; script externo carregado de forma diferida -->
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
@@ -106,9 +105,7 @@
                     n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
+            n.queue = [];
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '936439661476013');
@@ -118,15 +115,44 @@
             src="https://www.facebook.com/tr?id=936439661476013&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <!-- Microsoft Clarity -->
+    <!-- Microsoft Clarity — stub enfileira eventos; script externo carregado de forma diferida -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "x82nxc35jj");
     </script>
     <!-- End Microsoft Clarity -->
+
+    <!-- Carregamento diferido de scripts de terceiros (reduz o bloqueio da thread principal) -->
+    <script>
+        (function () {
+            var deferredScripts = [
+                'https://www.googletagmanager.com/gtag/js?id=G-JRN3H1B71Y',
+                'https://connect.facebook.net/en_US/fbevents.js',
+                'https://www.clarity.ms/tag/x82nxc35jj'
+            ];
+            function loadDeferredScripts() {
+                deferredScripts.forEach(function (src) {
+                    var s = document.createElement('script');
+                    s.async = true;
+                    s.src = src;
+                    document.head.appendChild(s);
+                });
+            }
+            function schedule() {
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(loadDeferredScripts, { timeout: 3000 });
+                } else {
+                    setTimeout(loadDeferredScripts, 1);
+                }
+            }
+            if (document.readyState === 'complete') {
+                schedule();
+            } else {
+                window.addEventListener('load', schedule);
+            }
+        })();
+    </script>
 
     <!-- Fontes (carregamento não bloqueante) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1747,13 +1773,13 @@
                 </div>
 
                 <div class="trust-grid">
-                    <div class="trust-card fade-in-scale delay-1" style="background-image: url('images/card-supervisao.jpg');">
+                    <div class="trust-card fade-in-scale delay-1" data-bg="images/card-supervisao.jpg">
                         <div class="trust-icon"><i class="fas fa-user-graduate"></i></div>
                         <h3>Supervisão de Fisioterapeuta</h3>
                         <p>Formação em Fisioterapia que permite ir além do movimento — identificamos a causa do problema e tratamos com precisão, não apenas aliviamos sintomas.</p>
                     </div>
 
-                    <div class="trust-card fade-in-scale delay-2" style="background-image: url('images/card-movimento-seguro.jpg');">
+                    <div class="trust-card fade-in-scale delay-2" data-bg="images/card-movimento-seguro.jpg">
                         <div class="trust-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3>Movimento Seguro e Consciente</h3>
                         <p>Seu plano é ajustado a cada aula, conforme a resposta do seu corpo ao movimento. Nada de repetir exercícios sem propósito — cada um tem um objetivo claro.</p>
@@ -2553,6 +2579,33 @@
        target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
+
+    <script>
+        // Lazy load das imagens de fundo dos cards (abaixo da dobra)
+        (function () {
+            var cards = document.querySelectorAll('.trust-card[data-bg]');
+            if (!cards.length) return;
+
+            function loadCard(card) {
+                var bg = card.getAttribute('data-bg');
+                if (bg) card.style.backgroundImage = "url('" + bg + "')";
+            }
+
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            loadCard(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { rootMargin: '200px' });
+                cards.forEach(function (card) { observer.observe(card); });
+            } else {
+                cards.forEach(loadCard);
+            }
+        })();
+    </script>
 
     <script>
         // Lazy load do vídeo da seção "Como cuidamos de você"
