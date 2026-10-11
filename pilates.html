@@ -323,9 +323,7 @@
             padding: 0 2.5rem;
             height: 60px;
             border-radius: 9999px;
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255,255,255,0.12);
             border: 1px solid rgba(255,255,255,0.15);
             color: #fff;
             cursor: pointer;
@@ -418,8 +416,6 @@
             padding: 0.5rem 1.25rem;
             border: 1px solid rgba(255,255,255,0.12);
             border-radius: 9999px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
         }
 
         .hero-logo {
@@ -449,8 +445,6 @@
             transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
             border: 1px solid rgba(255,255,255,0.12);
             flex-shrink: 0;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
         }
 
         .hero-instagram:hover {
@@ -512,16 +506,13 @@
             font-style: italic;
             font-weight: 400;
             color: var(--gold-light);
-            filter: blur(14px);
             opacity: 0;
             transform: translateY(6px);
-            transition: filter 0.9s cubic-bezier(0.2, 0, 0, 1),
-                        opacity 0.9s cubic-bezier(0.2, 0, 0, 1),
+            transition: opacity 0.9s cubic-bezier(0.2, 0, 0, 1),
                         transform 0.9s cubic-bezier(0.2, 0, 0, 1);
         }
 
         .hero-feature.visible .hero-feature-word {
-            filter: blur(0);
             opacity: 1;
             transform: translateY(0);
         }
@@ -672,10 +663,8 @@
             width: 56px;
             height: 56px;
             margin-bottom: 1.25rem;
-            background: rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.22);
             border: 1px solid rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
             border-radius: 16px;
             display: flex;
             align-items: center;
