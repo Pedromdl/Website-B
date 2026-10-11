@@ -18,6 +18,9 @@
 
     <link rel="canonical" href="https://www.binottiperformance.com/pilates">
 
+    <!-- Preload da imagem do hero (LCP) -->
+    <link rel="preload" as="image" href="images/espacototal-hero.webp" fetchpriority="high">
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
@@ -1722,12 +1725,12 @@
     <main>
         <!-- ========== HERO ========== -->
         <section class="hero" id="hero">
-            <img class="hero-bg" src="images/espacototal-hero.jpg" alt="Binotti Performance" fetchpriority="high">
+            <img class="hero-bg" src="images/espacototal-hero.webp" alt="Binotti Performance" width="603" height="1080" fetchpriority="high">
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
                 <div class="hero-logo fade-in visible">
-                    <img src="images/logobinotti.png" alt="Binotti Performance">
+                    <img src="images/logobinotti.webp" alt="Binotti Performance" width="637" height="241">
                     <a href="https://www.instagram.com/binotti.performance" target="_blank" rel="noopener noreferrer" class="hero-instagram" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
@@ -1776,13 +1779,13 @@
                 </div>
 
                 <div class="trust-grid">
-                    <div class="trust-card fade-in-scale delay-1" data-bg="images/card-supervisao.jpg">
+                    <div class="trust-card fade-in-scale delay-1" data-bg="images/card-supervisao.webp">
                         <div class="trust-icon"><i class="fas fa-user-graduate"></i></div>
                         <h3>Supervisão de Fisioterapeuta</h3>
                         <p>Formação em Fisioterapia que permite ir além do movimento — identificamos a causa do problema e tratamos com precisão, não apenas aliviamos sintomas.</p>
                     </div>
 
-                    <div class="trust-card fade-in-scale delay-2" data-bg="images/card-movimento-seguro.jpg">
+                    <div class="trust-card fade-in-scale delay-2" data-bg="images/card-movimento-seguro.webp">
                         <div class="trust-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3>Movimento Seguro e Consciente</h3>
                         <p>Seu plano é ajustado a cada aula, conforme a resposta do seu corpo ao movimento. Nada de repetir exercícios sem propósito — cada um tem um objetivo claro.</p>
@@ -1868,7 +1871,7 @@
                             loop
                             playsinline
                             preload="none"
-                            poster="images/espacototal-poster.jpg">
+                            poster="images/espacototal-poster.webp">
                         </video>
                     </div>
                 </div>
@@ -2246,7 +2249,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="images/logobinotti.png" alt="Binotti Performance">
+                    <img src="images/logobinotti.webp" alt="Binotti Performance" width="637" height="241">
                     <p>Treinamento funcional, fisioterapia e pilates que se adapta ao seu corpo — seja para o esporte, para o dia a dia ou para simplesmente se sentir melhor.</p>
                 </div>
                 <div>
@@ -2643,11 +2646,12 @@
     </script>
 
     <script>
-        // WhatsApp FAB — aparece após rolar 400px
+        // WhatsApp FAB — aparece após rolar 400px (com throttle via requestAnimationFrame)
         (function () {
             var fab = document.getElementById('whatsapp-fab');
             if (!fab) return;
 
+            var ticking = false;
             function toggleFab() {
                 if (window.scrollY > 400) {
                     fab.classList.add('visible');
@@ -2656,7 +2660,16 @@
                 }
             }
 
-            window.addEventListener('scroll', toggleFab, { passive: true });
+            function onScroll() {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(function () {
+                    toggleFab();
+                    ticking = false;
+                });
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
             toggleFab();
         })();
     </script>
